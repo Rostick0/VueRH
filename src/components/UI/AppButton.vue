@@ -20,9 +20,5 @@ export default {
         text-align: center;
 
         font-family: 'OrchideaPro-Bold';
-
-        padding: 0.625rem 0;
-
-        width: 9.5rem;
     }
 </style>

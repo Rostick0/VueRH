@@ -7,7 +7,14 @@
                 </div>
                 
 				<div class="header-top__phone">8 (913) 897-65-98</div>
-				<div class="header-top__burger"><span></span></div>
+				<button
+                    v-on:click="setShow"
+                    class="header-top__burger"
+                >
+                    <span>
+                        <AppHeaderMenu v-bind:show="show"></AppHeaderMenu>
+                    </span>
+                </button>
 			</div>
 		</div>
 
@@ -54,6 +61,22 @@
 	</header>
 </template>
 
+<script>
+export default {
+    name: 'AppHeader',
+    data() {
+        return {
+            show: false
+        }
+    },
+    methods: {
+        setShow() {
+            return this.show = !this.show
+        }
+    }
+}
+</script>
+
 <style lang="scss">
 .header {
     padding-top: 1rem;
@@ -88,6 +111,8 @@
         height: 2.5rem;
     
         padding: 0.625rem 1.125rem;
+
+        position: relative;
     
         span {
             background: #FFFFFF;
