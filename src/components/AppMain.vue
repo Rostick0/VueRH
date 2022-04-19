@@ -1,19 +1,19 @@
 <template>
     <main class="main">
-        <Main></Main>
+        <router-view></router-view>
 
         <AppSubscription></AppSubscription>
     </main>
 </template>
 
 <script>
-import Main from '@/pages/Main';
+//import Main from '@/pages/Main';
 
 export default {
     name: 'AppMain',
-    components: {
-        Main
-    }
+    // components: {
+    //     Main
+    // }
 }
 </script>
 

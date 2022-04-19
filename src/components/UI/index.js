@@ -6,7 +6,12 @@ import AppSubscription from '@/components/UI/AppSubscription';
 import AppCookie from '@/components/UI/AppCookie';
 import ShopProducts from '@/components/UI/ShopProducts';
 import AppHeaderMenu from '@/components/UI/AppHeaderMenu';
-import AppSlider from '@/components/UI/AppSlider.vue';
+import AppSlider from '@/components/UI/AppSlider';
+import AppShopAside from '@/components/UI/AppShopAside';
+import AppNavigation from '@/components/UI/AppNavigation';
+import AppReviewsCount from '@/components/UI/AppReviewsCount';
+import AppProductComments from '@/components/UI/AppProductComments';
+import AppBlogSocials from '@/components/UI/AppBlogSocials';
 
 export default [
     AppButton,
@@ -17,5 +22,10 @@ export default [
     AppCookie,
     ShopProducts,
     AppHeaderMenu,
-    AppSlider
+    AppSlider,
+    AppShopAside,
+    AppNavigation,
+    AppReviewsCount,
+    AppProductComments,
+    AppBlogSocials
 ];

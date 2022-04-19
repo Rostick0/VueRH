@@ -65,6 +65,14 @@ button,
 textarea {
 	font-family: inherit;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}
 input::-ms-clear {
 	display: none;
 }
@@ -158,6 +166,8 @@ html, body {
   flex-direction: column;
 
   min-height: 100%;
+
+  color: #424242;
 }
 
 .main {

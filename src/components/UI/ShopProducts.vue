@@ -33,9 +33,9 @@
                     <div class="shop-product__rating">
                         <RatingStars></RatingStars>
 
-                        <span class="shop-product__count-reviews">
-                            (12 отзывов)
-                        </span>
+                        <AppReviewsCount>
+                            12
+                        </AppReviewsCount>
                     </div>
 
                     <div class="shop-product__price">
@@ -167,6 +167,10 @@ export default {
         isFavourite: {
             type: Boolean,
             default: false
+        },
+        styleFlex: {
+            type: String,
+            default: 'flex: 1 1 20%'
         }
     },
 }
@@ -176,6 +180,9 @@ export default {
 .shop-products {
     display: flex;
     flex-wrap: wrap;
+
+    margin-right: -1.875rem;
+    margin-bottom: -3.25rem;
 }
 
 .shop-product {
@@ -186,22 +193,20 @@ export default {
 
     text-align: center;
 
-    max-width: 300px;
-
     margin-right: 1.875rem;
     margin-bottom: 3.25rem;
 
-    &:nth-child(4n) {
-        margin-right: 0;
-    }
+    // &:nth-child(4n) {
+    //     margin-right: 0;
+    // }
 
-    &:last-child {
-        margin-right: 0;
-    }
+    // &:last-child {
+    //     margin-right: 0;
+    // }
 
-    &:nth-last-child(-n + 4) {
-        margin-bottom: 0;
-    }
+    // &:nth-last-child(-n + 4) {
+    //     margin-bottom: 0;
+    // }
 
     &:hover {
         border: 1px solid #00A23D;
@@ -301,6 +306,8 @@ export default {
 
 .shop-product__button {
     padding: 0.75rem 3rem;
+
+    width: 100%;
 }
 
 .shop-product__name {
@@ -310,10 +317,6 @@ export default {
 .shop-product__rating {
     display: flex;
     justify-content: center;
-}
-
-.shop-product__count-reviews {
-    color: #BDBDBD;
 }
 
 .shop-product__price {

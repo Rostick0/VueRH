@@ -84,9 +84,11 @@
                         <div class="novelty-top__name top-name">
                             Наш блог:
                         </div>
-                        <AppButton class="novelty-top__button top-button">
-                            Все статьи
-                        </AppButton>
+                        <router-link to="/blogs">
+                            <AppButton class="novelty-top__button top-button">
+                                Все статьи
+                            </AppButton>
+                        </router-link>
                     </div>
 
                     <div class="blog-bottom">
@@ -118,7 +120,7 @@
 
 <script>
 export default {
-    name: 'AppPageIndex',
+    name: 'Main',
     data() {
         return {
             products: [
@@ -328,6 +330,12 @@ export default {
 
 .category-bottom {
     display: flex;
+
+    @media (max-width: 1024px) {
+        & {
+            flex-wrap: wrap;
+        }
+    }
 }
 
 .category-bottom__item {
@@ -361,8 +369,25 @@ export default {
     }
 
     .category-bottom__item_text {
-            margin-top: 1.375rem;
+        margin-top: 1.375rem;
+    }
+
+    @media (max-width: 1024px) {
+        & {
+            flex: 1 1 45%;
+
+            margin-right: 0.625rem;
+            margin-bottom: 0.625rem;
         }
+
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+
+        &:nth-last-child(-n+2) {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .category-bottom__item_img {

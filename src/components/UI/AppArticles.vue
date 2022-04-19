@@ -1,31 +1,35 @@
 <template>
-    <article v-for="article in articles" v-bind:key="article.id" class="blog__article">
-        <div class="blog__article_img">
-            <img :src="require(`@/img/${article.path}`)" alt="">
-        </div>
-
-        <div class="blog__article_content">
-            <date class="blog__article_date">
-                <span class="blog__article_day">
-                    05
-                </span>
-                <span class="blog__article_year">
-                    22
-                </span>
-                <span class="blog__article_month">
-                    Янв.
-                </span>
-            </date>
-            <div class="blog__article_text">
-                <h5 class="blog__article_title">
-                    {{ article.title }}
-                </h5>
-                <div class="blog__article_description">
-                    {{ article.desciption }}
+    <div class="articles" :style="{marginBottom: `-${marginBottom}`}">
+        <article v-for="article in articles" v-bind:key="article.id" :style="{marginBottom: `${marginBottom}`}" class="article">
+            <router-link class="article" :to="`/blog/${article.id}`">
+                <div class="article_img">
+                    <img :src="require(`@/img/${article.path}`)" alt="">
                 </div>
-            </div>
-        </div>
-    </article>
+
+                <div class="article_content">
+                    <date class="article_date">
+                        <span class="article_day">
+                            05
+                        </span>
+                        <span class="article_year">
+                            22
+                        </span>
+                        <span class="article_month">
+                            Янв.
+                        </span>
+                    </date>
+                    <div class="article_text">
+                        <h5 class="article_title">
+                            {{ article.title }}
+                        </h5>
+                        <div class="article_description">
+                            {{ article.desciption }}
+                        </div>
+                    </div>
+                </div>
+            </router-link>
+        </article>
+    </div>
 </template>
 
 <script>
@@ -37,7 +41,7 @@ export default {
             //     {
             //         id: 1,
             //         title: 'Британские ученые заявили, что жизнь прекрасна!',
-            //         path: 'blog_honey.png',
+            //         path: 'oney.png',
             //         desciption: `
             //             Как уже неоднократно упомянуто, 
             //             предприниматели в сети интернет, 
@@ -48,7 +52,7 @@ export default {
             //     {
             //         id: 2,
             //         title: 'Британские ученые заявили, что жизнь прекрасна!',
-            //         path: 'blog_honey.png',
+            //         path: 'oney.png',
             //         desciption: `
             //             Как уже неоднократно упомянуто, 
             //             предприниматели в сети интернет, 
@@ -59,7 +63,7 @@ export default {
             //     {
             //         id: 3,
             //         title: 'Британские ученые заявили, что жизнь прекрасна!',
-            //         path: 'blog_honey.png',
+            //         path: 'oney.png',
             //         desciption: `
             //             Как уже неоднократно упомянуто, 
             //             предприниматели в сети интернет, 
@@ -72,28 +76,41 @@ export default {
     },
     props: {
         articles: {
-            type: Array
+            type: Array,
+        },
+        marginBottom: {
+            type: String,
+            default: 'margin-bottom: 0;'
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.blog__article {
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.article {
+
+    
     color: #424242;
 
+    flex: 1 0 28%;
+
     margin-right: 2rem;
+
+    &:nth-child(3n) {
+        margin-right: 0;
+    }
 }
 
-.blog__article:nth-child(3n) {
-    margin-right: 0;
-}
-
-.blog__article_content {
+.article_content {
     display: flex;
 }
 
-.blog__article_date {
+.article_date {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,11 +120,11 @@ export default {
     margin-right: 1.25rem;
 }
 
-.blog__article_day {
+.article_day {
     border-bottom: 2px solid #424242;
 }
 
-.blog__article_month {
+.article_month {
     background: #FAAF3A;
     color: #000000;
 
@@ -116,7 +133,7 @@ export default {
     padding: 0.56rem 1.125rem;
 }
 
-.blog__article_img {
+.article_img {
     img {
         width: 100%;
     }
@@ -127,15 +144,15 @@ export default {
     }
 }
 
-.blog__article_content {
+.article_content {
     margin-top: 1.5rem;
 }
 
-.blog__article_text {
+.article_text {
     font-size: 1rem;
 }
 
-.blog__article_title {
+.article_title {
     font-family: 'OrchideaPro-ExtraBold';
 
     margin-bottom: 0.5rem;

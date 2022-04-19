@@ -13,9 +13,12 @@
                     <div class="slider__description">
                         Скидки на весь ассортимент на этой недели!
                     </div>
-                    <button class="slider__button">
-                        Подробнее
-                    </button>
+                    <router-link to="/catalog">
+                        <button class="slider__button">
+                            Подробнее
+                        </button>
+                    </router-link>
+                    
                 </div>
                 <div class="slider__img">
                     <img src="@/img/slider_honey.png" alt="">

@@ -3,7 +3,9 @@
 		<div class="container">
 			<div class="header-top">
 				<div class="header-top__logo">
-                    <a href="#"><img src="@/img/logo.svg" alt="RumHerb"></a>
+                    <router-link to="/">
+                        <img src="@/img/logo.svg" alt="RumHerb">
+                    </router-link>
                 </div>
                 
 				<div class="header-top__phone">8 (913) 897-65-98</div>
@@ -22,22 +24,24 @@
 
 		<div class="container">
 			<div class="header-bottom">
-				<div class="header-bottom__catalog">
+				<router-link to="/catalog" class="header-bottom__catalog">
 					<div class="header-bottom__burger">
 						<span></span>
 					</div>
 					<span>
 						Каталог товаров
 					</span>
-				</div>
+				</router-link>
 
 				<div class="header-bottom__input">
 					<input type="text" placeholder="Поиск по сайту">
 				</div>
 
-				<button class="header-bottom__transition">
-					Перейти в блог
-				</button>
+				<router-link to="/blogs">
+                    <button class="header-bottom__transition">
+                        Перейти в блог
+                    </button>
+                </router-link>
 
 				<ul class="header-bottom__interaction">
 					<li class="header-bottom__interaction_item favorite">
