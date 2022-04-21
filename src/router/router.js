@@ -3,6 +3,7 @@ import Catalog from '@/pages/Catalog';
 import Product from '@/pages/Product';
 import Blogs from '@/pages/Blogs';
 import Blog from '@/pages/Blog';
+import Cart from '@/pages/Cart';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -25,6 +26,10 @@ const routes = [
     {
         path: '/blog/:id',
         component: Blog
+    },
+    {
+        path: '/cart',
+        component: Cart
     }
 ]
 

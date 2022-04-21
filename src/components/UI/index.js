@@ -12,6 +12,8 @@ import AppNavigation from '@/components/UI/AppNavigation';
 import AppReviewsCount from '@/components/UI/AppReviewsCount';
 import AppProductComments from '@/components/UI/AppProductComments';
 import AppBlogSocials from '@/components/UI/AppBlogSocials';
+import AppAlert from '@/components/UI/AppAlert';
+import AppGreyPhone from '@/components/UI/AppGreyPhone';
 
 export default [
     AppButton,
@@ -27,5 +29,7 @@ export default [
     AppNavigation,
     AppReviewsCount,
     AppProductComments,
-    AppBlogSocials
+    AppBlogSocials,
+    AppAlert,
+    AppGreyPhone
 ];

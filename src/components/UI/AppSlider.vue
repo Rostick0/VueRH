@@ -1,19 +1,24 @@
 <template>
     <div class="slider">
-        <div class="slider__arrow_left">
-            <img src="@/img/arrow.svg" alt="">
+        <div class="slider__arrow_left" v-on:click="leftArrow">
+            <!-- <img src="@/img/arrow.svg" alt=""> -->
+            <svg width="44" height="40" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="#FAAF3A"/>
+                <circle cx="24" cy="20" r="19" stroke="black" stroke-width="2"/>
+                <path d="M25.5 12L16 20L25.5 27.5" stroke="black" stroke-width="2"/>
+            </svg>
         </div>
 
         <div class="slider__content">
             <div class="slider__content-top">
                 <div class="slider__text">
                     <h3 class="slider__title">
-                        Время меда!
+                        {{ this.slides[this.slideItem].title }}
                     </h3>
                     <div class="slider__description">
-                        Скидки на весь ассортимент на этой недели!
+                        {{ this.slides[this.slideItem].description }}
                     </div>
-                    <router-link to="/catalog">
+                    <router-link :to="this.slides[this.slideItem].link">
                         <button class="slider__button">
                             Подробнее
                         </button>
@@ -21,27 +26,80 @@
                     
                 </div>
                 <div class="slider__img">
-                    <img src="@/img/slider_honey.png" alt="">
+                    <img :src="require(`@/img/${this.slides[this.slideItem].img}`)" alt="">
                 </div>
             </div>
             <div class="slider__content-bottom">
                 <ul class="slider__switches">
-                    <li class="slider__switch _active"></li>
-                    <li class="slider__switch"></li>
-                    <li class="slider__switch"></li>
+                    <li v-for="button in this.slides" v-bind:key="button.id" v-on:click="setSlide(button.id)" class="slider__switch">
+                        <span v-show="this.slideItem === button.id" class="_active">
+                            
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>
 
-        <div class="slider__arrow_right">
-            <img src="@/img/arrow.svg" alt="">
+        <div class="slider__arrow_right" v-on:click="rightArrow">
+            <svg width="44" height="40" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="#FAAF3A"/>
+                <circle cx="24" cy="20" r="19" stroke="black" stroke-width="2"/>
+                <path d="M25.5 12L16 20L25.5 27.5" stroke="black" stroke-width="2"/>
+            </svg>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'AppSlider'
+    name: 'AppSlider',
+    data() {
+        return {
+            slideItem: 0,
+            slides: [
+                {
+                    id: 0,
+                    title: 'Время меда!',
+                    description: 'Скидки на весь ассортимент на этой недели!',
+                    img: 'slider_honey.png',
+                    link: '/catalog'
+                },
+                {
+                    id: 1,
+                    title: 'Время меда 2!',
+                    description: 'Скидки на весь ассортимент на этой недели!',
+                    img: 'slider_honey.png',
+                    link: '/catalog'
+                },
+                {
+                    id: 2,
+                    title: 'Время меда 3!',
+                    description: 'Скидки на весь ассортимент на этой недели!',
+                    img: 'slider_honey.png',
+                    link: '/catalog'
+                }
+            ]
+        }
+    },
+    methods: {
+        leftArrow() {
+            if (0 < this.slideItem) {
+                this.slideItem--;
+            }
+
+            console.log(this.slideItem);
+        },
+        rightArrow() {
+            if (this.slides.length - 1 > this.slideItem) {
+                this.slideItem++;
+            }
+
+            console.log(this.slideItem);
+        },
+        setSlide(item) {
+            this.slideItem = item;
+        }
+    }
 }
 </script>
 
@@ -88,8 +146,6 @@ export default {
     font-size: 1.125rem;
 
     padding: 1rem 3.25rem;
-
-    z-index: 10;
 }
 
 .slider__img {
@@ -117,8 +173,14 @@ export default {
     width: 1.25rem;
     height: 1.25rem;
 
-    &._active {
+    & > ._active {
+        @extend .slider__switch;
+
         background: #FAAF3A;
+
+        display: block;
+
+        margin-right: 0;
     }
 }
 

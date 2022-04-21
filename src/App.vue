@@ -30,8 +30,6 @@ export default {
 *,
 *:before,
 *:after {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 :focus,
@@ -50,12 +48,12 @@ aside {
 }
 html,
 body {
-	font-family: inherit;
+	font-family: 'OrchideaPro-Medium';
 	height: 100%;
 	width: 100%;
 	font-size: 100%;
 	line-height: 1;
-	font-size: 14px;
+	font-size: 16px;
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -103,7 +101,7 @@ h4,
 h5,
 h6 {
 	font-size: inherit;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 
@@ -143,12 +141,6 @@ h6 {
 		url('fonts/extra_bold/OrchideaPro-ExtraBold.woff') format('woff'),
 		url('fonts/extra_bold/OrchideaPro-ExtraBold.ttf') format('ttf'),
 		url('fonts/extra_bold/OrchideaPro-ExtraBold.eot') format('eot');
-}
-
-
-html, body {
-    font-family: 'OrchideaPro-Medium';
-    font-size: 16px;
 }
 
 .container {

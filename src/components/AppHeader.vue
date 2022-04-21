@@ -8,7 +8,9 @@
                     </router-link>
                 </div>
                 
-				<div class="header-top__phone">8 (913) 897-65-98</div>
+				<div class="header-top__phone">
+                    <AppGreyPhone></AppGreyPhone>
+                </div>
 				<button
                     v-on:click="setShow"
                     class="header-top__burger"
@@ -45,9 +47,10 @@
 
 				<ul class="header-bottom__interaction">
 					<li class="header-bottom__interaction_item favorite">
-						<a href="#">
+						<router-link to="/cart">
+                            <span>{{ this.count }}</span>
 							<img src="@/img/favorite_icon.svg" alt="favorite">
-						</a>
+                        </router-link>
 					</li>
 					<li class="header-bottom__interaction_item log">
 						<a href="#">
@@ -56,6 +59,7 @@
 					</li>
 					<li class="header-bottom__interaction_item cart">
 						<a href="#">
+                            <span>0</span>
 							<img src="@/img/cart_icon.svg" alt="cart">
 						</a>
 					</li>
@@ -70,13 +74,32 @@ export default {
     name: 'AppHeader',
     data() {
         return {
-            show: false
+            show: false,
+            count: 0
         }
     },
+    // computed: {
+    // getFavorite() {
+    //     let count = JSON.parse(localStorage.getItem('Favorite'));
+    //     count = count.split(',');
+    //     count = count.length;
+
+    //     return count;
+    //         console.log(JSON.parse(localStorage.getItem('Favorite')).split(',').length)
+    // }
+    // },
     methods: {
         setShow() {
             return this.show = !this.show
-        }
+        },
+        // getFavorite() {
+        //     this.count = JSON.parse(localStorage.getItem('Favorite'));
+        //     this.count = this.count.split(',');
+        //     this.count = this.count.length;
+
+        //     return this.count;
+        //         console.log(JSON.parse(localStorage.getItem('Favorite')).split(',').length)
+        // }
     }
 }
 </script>
@@ -89,18 +112,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-    
-    .header-top__phone {
-        display: flex;
-    
-        font-family: 'OrchideaPro-SemiBold';
-        font-size: 1.125rem;
-    
-        &::before {
-            content: url('../img/phone_icon.svg');
-            margin-right: 0.5rem;
-        }
     }
     
     .header-top__burger {
@@ -227,10 +238,11 @@ export default {
         }
     }
     
-    .header-bottom__interaction_item.favorite > *::before {
-        content: "1";
+    .header-bottom__interaction_item.favorite > * span {
         background: #FAAF3A;
         border-radius: 50%;
+
+        color: #000000;
     
         display: flex;
         justify-content: center;
@@ -250,10 +262,11 @@ export default {
         z-index: 1000;
     }
     
-    .header-bottom__interaction_item.cart > *::before {
-        content: "1";
+    .header-bottom__interaction_item.cart > * span {
         background: #FAAF3A;
         border-radius: 50%;
+
+        color: #000000;
     
         display: flex;
         justify-content: center;

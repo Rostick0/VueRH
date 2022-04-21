@@ -122,6 +122,19 @@
                     аллергия, его нельзя употреблять.
                 </div>
 
+                <AppAlert class="article__alert">
+                    <template v-slot:img>
+                        <svg width="16" height="52" viewBox="0 0 16 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.1333 35.0133H3.46667L0 0H15.6L12.1333 35.0133Z" fill="#FAAF3A"/>
+                            <path d="M7.80029 52C11.4859 52 14.4736 49.051 14.4736 45.4133C14.4736 41.7756 11.4859 38.8267 7.80029 38.8267C4.11471 38.8267 1.12695 41.7756 1.12695 45.4133C1.12695 49.051 4.11471 52 7.80029 52Z" fill="#FAAF3A"/>
+                        </svg>
+                    </template>
+                    <template v-slot:text>
+                        На самом деле людей, которым противопоказан мед, в том числе и липовый, очень мало, поэтому для большинства желательно 
+                        употреблять липовый мед регулярно, чтобы поддерживать здоровье и предупреждать развитие различных заболеваний.
+                    </template>
+                </AppAlert>
+
                 <div class="article__subtitle">
                     Состав
                 </div>
@@ -357,6 +370,10 @@ export default {
 
 .article__text {
     margin-bottom: 1rem;
+}
+
+.article__alert {
+    color: #000000;
 }
 
 .article__img {

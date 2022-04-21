@@ -18,8 +18,10 @@
                     </li>
                 </ul>
 
-                <img v-if="isFavourite" class="shop-product__check-favourite" src="@/img/like-active.svg" alt="">
-                <img v-else class="shop-product__check-favourite" src="@/img/like_no-active.svg" alt="">
+                <button>
+                    <img v-if="this.isFavourite" class="shop-product__check-favourite" src="@/img/like-active.svg" alt="">
+                    <img v-else class="shop-product__check-favourite" src="@/img/like_no-active.svg" alt="">
+                </button>
 
                 <img :src="require(`@/img/${product.path}`)" alt="">
             </div>
@@ -67,6 +69,7 @@ export default {
     name: 'ShopProducts',
     data() {
         return {
+            isFavourite1: false
             // products: [
             //     {
             //         id: 1,
@@ -157,7 +160,10 @@ export default {
             //         isHit: null
             //     },
             // ]
-        }
+        
+        
+       
+       }
     },
     props: {
         products: {
@@ -173,6 +179,9 @@ export default {
             default: 'flex: 1 1 20%'
         }
     },
+    methods: {
+        
+    }
 }
 </script>
 

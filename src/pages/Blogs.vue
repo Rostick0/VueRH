@@ -100,14 +100,16 @@
                                 08.02.2022
                             </date>
 
-                            <button class="article-big__button">
-                                <span>
-                                    Читать статью
-                                </span>
-                                <svg width="55" height="16" viewBox="0 0 55 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.57628e-07 8H53M53 8L41.907 1M53 8L41.907 15" stroke="#424242" stroke-width="2"/>
-                                </svg>
-                            </button>
+                            <router-link :to="`/blog/${1}`">
+                                <button class="article-big__button">
+                                    <span>
+                                        Читать статью
+                                    </span>
+                                    <svg width="55" height="16" viewBox="0 0 55 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.57628e-07 8H53M53 8L41.907 1M53 8L41.907 15" stroke="#424242" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                            </router-link>
                         </div>
                     </div>
                 </div>
