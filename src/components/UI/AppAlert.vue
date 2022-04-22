@@ -28,10 +28,16 @@ export default {
 
     border-radius: 5px;
 
+    // position: absolute;
+    // left: 0;
+}
+
+.container {
     display: flex;
     align-items: center;
-    
-    padding: 1.75rem 0;
+
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
 }
 
 .alert__img {

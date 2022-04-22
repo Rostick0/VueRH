@@ -205,6 +205,28 @@
                     работу мочеполовой системы, эффективно борется с хронической усталостью, нормализует работу ЦНС за счет большого количества витаминов 
                     группы В, улучшает интеллектуальную деятельность. Кроме этого, липовый мед помогает бороться с бессонницей, стрессами и депрессией.
                 </div>
+
+                <div class="article__switch_buttons">
+                    <button class="article__switch_button">
+                        <svg width="55" height="16" viewBox="0 0 55 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M55 8H2M2 8L13.093 1M2 8L13.093 15" stroke="#A5A3A3" stroke-width="2"/>
+                        </svg>
+                        <span>
+                            Предыдущая статья
+                        </span>
+                    </button>
+
+                    <button class="article__switch_button">
+                        <span>
+                            Следующая статья
+                        </span>
+                        <svg width="55" height="16" viewBox="0 0 55 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.57628e-07 8H53M53 8L41.907 1M53 8L41.907 15" stroke="#A5A3A3" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <AppBlogSocials class="article-socials2"></AppBlogSocials>
             </div>
 
             <div class="blogs-related">
@@ -374,6 +396,10 @@ export default {
 
 .article__alert {
     color: #000000;
+
+    svg {
+        margin-right: 2.25rem;
+    }
 }
 
 .article__img {
@@ -406,6 +432,30 @@ export default {
     }
 }
 
+.article__switch_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 1.875rem;
+    margin-bottom: 3rem;
+}
+
+.article__switch_button {
+    background: none;
+
+    color: #A5A3A3;
+
+    display: flex;
+    align-items: center;
+
+    & > *:first-child {
+        display: block;
+
+        margin-right: 1.25rem;
+    }
+}
+
 .article__products {
     margin-top: 3.75rem;
     margin-bottom: 2.5rem;
@@ -413,6 +463,10 @@ export default {
 
 .article-socials1 {
     margin-top: 2.5rem;
+}
+
+.article-socials2 {
+    margin-bottom: 3.75rem;
 }
 
 
