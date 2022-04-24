@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="cart__container_right">
-                    <form class="cart__form" action="#" method="POST">
+                    <form class="cart__form" action="#" method="POST" onsubmit="return false;">
                         <div class="cart__form_top">
                             <div class="cart__form_title">
                                 Оформление заказа
@@ -78,11 +78,11 @@
                                 Покупатель
                             </div>
 
-                            <div class="cart__user_inputs">
-                                <input placeholder="Имя" type="text" class="cart__user_input">
-                                <input placeholder="Фамилия" type="text" class="cart__user_input">
-                                <input placeholder="+ 7 (000) - 000 - 00 - 00" type="number" class="cart__user_input">
-                                <input placeholder="E-mail адрес" type="email" class="cart__user_input">
+                            <div class="cart__inputs">
+                                <AppInput class="cart__input" v-model="val" placeholder="Имя" type="text"></AppInput>
+                                <AppInput class="cart__input" placeholder="Фамилия" type="text"></AppInput>
+                                <AppInput class="cart__input" placeholder="+ 7 (000) - 000 - 00 - 00" type="number"></AppInput>
+                                <AppInput class="cart__input" placeholder="E-mail адрес" type="number"></AppInput>
                             </div>
                         </div>
 
@@ -155,7 +155,7 @@
                                 </li>
                             </ul>
                             <div class="cart__method_address">
-                                <input class="cart__user_input" style="width: 100%" type="text">
+                                <AppInput class="cart__input"></AppInput>
                             </div>
                         </div>
 
@@ -181,8 +181,7 @@
                             <div class="cart__commet_title">
                                 Комментарий к заказу:
                             </div>
-
-                            <input type="text" class="cart__user_input">
+                            <AppInput class="cart__input"></AppInput>
                         </div>
 
                         <ul class="cart__result">
@@ -226,7 +225,12 @@
 
 <script>
 export default {
-    name: 'Cart'
+    name: 'Cart',
+    data() {
+        return {
+            val: ''
+        }
+    }
 }
 </script>
 
@@ -379,7 +383,7 @@ export default {
     margin-bottom: 1rem;
 }
 
-.cart__user_inputs {
+.cart__inputs {
     display: flex;
     flex-wrap: wrap;
 
@@ -387,7 +391,7 @@ export default {
     margin-bottom: -1.25rem;
 }
 
-.cart__user_input {
+.cart__input {
     background: #FEFEFE;
     border: 1px solid #00A23D;
     border-radius: 3px;
@@ -544,5 +548,20 @@ export default {
 
 .cart__button {
     padding: 0.5rem 2.25rem;
+}
+
+@media (max-width: 1024px) {
+    .cart__container {
+        flex-wrap: wrap;
+
+        & > * {
+            flex: 1 1 100%;
+        }
+    }
+
+    .cart__container_left {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
 }
 </style>

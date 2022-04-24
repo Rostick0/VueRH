@@ -254,6 +254,8 @@ export default {
 }
 
 .article-big__img {
+    flex: 0 0 60%;
+
     margin-right: 1.5rem;
 
     &:hover {
@@ -261,11 +263,17 @@ export default {
         outline: 2px solid #00A23D;
         box-shadow: 6px 6px 6px #BBECCD;
     }
+
+    img {
+        width: 100%;
+    }
 }
 
 .article-big__content {
     display: flex;
     flex-direction: column;
+
+    flex: 1 1 100%;
 }
 
 .article-big__title {
@@ -362,5 +370,16 @@ export default {
     color: #00A23D;
 
     font-family: 'OrchideaPro-Bold';
+}
+
+@media (max-width: 1024px) {
+    .blog__article-big {
+        flex-direction: column;
+    }
+
+    .article-big__img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
 }
 </style>

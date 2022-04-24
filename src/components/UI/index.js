@@ -15,6 +15,7 @@ import AppBlogSocials from '@/components/UI/AppBlogSocials';
 import AppAlert from '@/components/UI/AppAlert';
 import AppGreyPhone from '@/components/UI/AppGreyPhone';
 import AppInput from '@/components/UI/AppInput';
+import AppChat from '@/components/UI/AppChat'
 
 export default [
     AppButton,
@@ -33,5 +34,6 @@ export default [
     AppBlogSocials,
     AppAlert,
     AppGreyPhone,
-    AppInput
+    AppInput,
+    AppChat
 ];

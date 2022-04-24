@@ -169,4 +169,20 @@ export default {
 .reviews__card_description {
     line-height: 1rem;
 }
+
+@media (max-width: 1024px) {
+    .reviews-cards {
+        flex-wrap: wrap;
+    }
+
+    .reviews-card {
+        flex: 1 1 100%;
+
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
 </style>

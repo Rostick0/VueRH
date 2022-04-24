@@ -1,5 +1,5 @@
 <template>
-    <input class="input" v-bind:type="type">
+    <input class="input" v-bind:type="type" v-bind:placeholder="placeholder" v-bind:value="modelValue" @input="updateInput">
 </template>
 
 <script>
@@ -9,6 +9,17 @@ export default {
         type: {
             type: String,
             default: 'text'
+        },
+        placeholder: {
+            type: String,
+        },
+        modelValue: {
+            type: [String, Number]
+        }
+    },
+    methods: {
+        updateInput(event) {
+            this.$emit('update:modelValue', event.target.value);
         }
     }
 }

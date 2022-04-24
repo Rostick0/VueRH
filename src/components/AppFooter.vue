@@ -229,4 +229,20 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+	.footer {
+		.footer-top {
+			flex-direction: column;
+
+			& > * {
+				margin-bottom: 1.5rem;
+			}
+		}
+
+		.footer-top__h5 {
+			margin-bottom: 1rem;
+		}
+	}
+}
 </style>

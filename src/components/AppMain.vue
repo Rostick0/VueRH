@@ -2,6 +2,7 @@
     <main class="main">
         <router-view></router-view>
 
+        <AppChat class="main__chat"></AppChat>
         <AppSubscription></AppSubscription>
     </main>
 </template>
@@ -19,5 +20,8 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.main__chat {
+    position: fixed;
+    top: 0;
+}
 </style>

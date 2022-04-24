@@ -67,4 +67,17 @@ export default {
 
     width: 100%;
 }
+
+@media (max-width: 1024px) {
+    .subscription {
+        flex-direction: column;
+    }
+
+    .subscription__text {
+        font-size: 1.125rem;
+
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
 </style>

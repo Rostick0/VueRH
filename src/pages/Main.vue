@@ -1,5 +1,5 @@
 <template>
-    <section class="slider">
+    <section class="main__slider">
         <div class="container">
             <AppSlider></AppSlider>
         </div>
@@ -311,7 +311,7 @@ export default {
     padding: 0.625rem 1.25rem;
 }
 
-.slider {
+.main__slider {
     background: linear-gradient(90deg, #ECE9E6 0%, #FFFFFF 100%);
 
     margin-top: 1.25rem;

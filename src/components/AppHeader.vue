@@ -58,10 +58,10 @@
 						</a>
 					</li>
 					<li class="header-bottom__interaction_item cart">
-						<a href="#">
-                            <span>0</span>
+						<router-link to="/cart">
+                            <span>{{ this.count }}</span>
 							<img src="@/img/cart_icon.svg" alt="cart">
-						</a>
+						</router-link>
 					</li>
 				</ul>
 			</div>
