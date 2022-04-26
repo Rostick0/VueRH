@@ -37,9 +37,11 @@
                                 <path d="M51.4891 16.5538L42.532 0H38.468L47.4252 16.5538H6.57484L15.532 0H11.468L2.51089 16.5538H0V28.6934L4.8213 52.2752H49.1757L54 28.9239V16.5538H51.4891ZM50.4 28.5789L46.2243 48.7902H7.7787L3.6 28.3519V27.8801H50.4V28.5789ZM50.4 24.3951H3.6V20.0388H50.4V24.3951Z" fill="#00A23D"/>
                             </svg>
                         </div>
-                        <AppButton class="cart__no-products_button">
-                            Перейти в каталог
-                        </AppButton>
+                        <router-link to="/catalog">
+                            <AppButton class="cart__no-products_button">
+                                Перейти в каталог
+                            </AppButton>
+                        </router-link>
                     </div>
                     <ul v-else class="cart__products">
                         <li class="cart__products_item"></li>

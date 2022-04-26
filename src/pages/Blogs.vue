@@ -163,6 +163,10 @@
                     </div>
                 </div>
                 <AppArticles v-bind:articles="articles" v-bind:marginBottom="'3.75rem'"></AppArticles>
+
+                <div class="blog__footer-page">
+                    <AppFooterPager v-bind:countPage="countPager()"></AppFooterPager>
+                </div>
             </div>
         </div>
     </div>
@@ -241,6 +245,13 @@ export default {
 
                 }
             ],
+        }
+    },
+    methods: {
+        countPager() {
+            let count = this.articles.length;
+            count = Math.floor(count/12);
+            return count;
         }
     }
 }
@@ -381,5 +392,9 @@ export default {
         margin-right: 0;
         margin-bottom: 1rem;
     }
+}
+
+.blog__footer-page {
+    margin-top: 5rem;
 }
 </style>

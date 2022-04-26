@@ -16,6 +16,8 @@ import AppAlert from '@/components/UI/AppAlert';
 import AppGreyPhone from '@/components/UI/AppGreyPhone';
 import AppInput from '@/components/UI/AppInput';
 import AppChat from '@/components/UI/AppChat'
+import AppInputRadio from '@/components/UI/AppInputRadio';
+import AppFooterPager from '@/components/UI/AppFooterPager';
 
 export default [
     AppButton,
@@ -35,5 +37,7 @@ export default [
     AppAlert,
     AppGreyPhone,
     AppInput,
-    AppChat
+    AppChat,
+    AppInputRadio,
+    AppFooterPager
 ];

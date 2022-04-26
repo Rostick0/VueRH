@@ -11,10 +11,7 @@
 				<div class="header-top__phone">
                     <AppGreyPhone></AppGreyPhone>
                 </div>
-				<button
-                    v-on:click="setShow"
-                    class="header-top__burger"
-                >
+				<button v-on:click="setShow" class="header-top__burger">
                     <span>
                         <AppHeaderMenu v-bind:show="show"></AppHeaderMenu>
                     </span>
@@ -48,7 +45,7 @@
 				<ul class="header-bottom__interaction">
 					<li class="header-bottom__interaction_item favorite">
 						<router-link to="/cart">
-                            <span>{{ this.count }}</span>
+                            <span>{{ checkCountFavorite() }}</span>
 							<img src="@/img/favorite_icon.svg" alt="favorite">
                         </router-link>
 					</li>
@@ -78,28 +75,22 @@ export default {
             count: 0
         }
     },
-    // computed: {
-    // getFavorite() {
-    //     let count = JSON.parse(localStorage.getItem('Favorite'));
-    //     count = count.split(',');
-    //     count = count.length;
-
-    //     return count;
-    //         console.log(JSON.parse(localStorage.getItem('Favorite')).split(',').length)
-    // }
-    // },
     methods: {
         setShow() {
             return this.show = !this.show
         },
-        // getFavorite() {
-        //     this.count = JSON.parse(localStorage.getItem('Favorite'));
-        //     this.count = this.count.split(',');
-        //     this.count = this.count.length;
+        parseLocalStorage(name) {
+            let parse = localStorage.getItem(name);
+            parse = JSON.parse(parse);
+            return parse;
+        },
+        checkCountFavorite() {
+            let count = this.parseLocalStorage('Favorite');
+            return count.length
+        },
+        checkCountCart() {
 
-        //     return this.count;
-        //         console.log(JSON.parse(localStorage.getItem('Favorite')).split(',').length)
-        // }
+        }
     }
 }
 </script>

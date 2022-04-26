@@ -18,8 +18,8 @@
                     </li>
                 </ul>
 
-                <button>
-                    <img v-if="this.isFavourite" class="shop-product__check-favourite" src="@/img/like-active.svg" alt="">
+                <button v-on:click="setFavorite(product.id)">
+                    <img v-if="checkFavorite(product.id)" class="shop-product__check-favourite" src="@/img/like-active.svg" alt="">
                     <img v-else class="shop-product__check-favourite" src="@/img/like_no-active.svg" alt="">
                 </button>
 
@@ -69,101 +69,7 @@ export default {
     name: 'ShopProducts',
     data() {
         return {
-            isFavourite1: false
-            // products: [
-            //     {
-            //         id: 1,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 0,
-            //         ruble: 150,
-            //         hryvnia: 100,
-            //         isHitSales: null,
-            //         isNovelty: null,
-            //         isDiscount: null,
-            //         isHit: null
-            //     },
-            //     {
-            //         id: 2,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 300,
-            //         ruble: 150,
-            //         hryvnia: 100,
-            //         isHitSales: true,
-            //         isNovelty: null,
-            //         isDiscount: null,
-            //         isHit: null
-            //     },
-            //     {
-            //         id: 3,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 0,
-            //         ruble: 150,
-            //         hryvnia: 100,
-            //         isHitSales: null,
-            //         isNovelty: true,
-            //         isDiscount: true,
-            //         isHit: true
-            //     },
-            //     {
-            //         id: 4,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 0,
-            //         ruble: 150,
-            //         hryvnia: 100,
-            //         isHitSales: null,
-            //         isNovelty: null,
-            //         isDiscount: null,
-            //         isHit: null
-            //     },
-            //     {
-            //         id: 5,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 200,
-            //         ruble: 150,
-            //         hryvnia: 100,
-            //         isHitSales: null,
-            //         isNovelty: true,
-            //         isDiscount: true,
-            //         isHit: null
-            //     },
-            //     {
-            //         id: 6,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 0,
-            //         ruble: 150,
-            //         hryvnia: 100,
-            //         isHitSales: null,
-            //         isNovelty: null,
-            //         isDiscount: null,
-            //         isHit: null
-            //     },
-            //     {
-            //         id: 7,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 0,
-            //         ruble: 150,
-            //         hryvnia: 100,
-            //         isHitSales: null,
-            //         isNovelty: null,
-            //         isDiscount: null,
-            //         isHit: null
-            //     },
-            //     {
-            //         id: 8,
-            //         name: 'Самый вкусный мед',
-            //         delPrice: 0,
-            //         ruble: 300,
-            //         hryvnia: 200,
-            //         isHitSales: null,
-            //         isNovelty: null,
-            //         isDiscount: null,
-            //         isHit: null
-            //     },
-            // ]
-        
-        
-       
-       }
+        }
     },
     props: {
         products: {
@@ -180,8 +86,34 @@ export default {
         }
     },
     methods: {
-        
-    }
+        filterFavorite(data, id) {
+            data = data.filter(elem => id === elem.id);
+            data = data.length
+            return data;
+        },
+        localStorageSet(name, data) {
+            data = JSON.stringify(data);
+            localStorage.setItem(name, data)
+        },
+        checkFavorite(id) {
+            let data = localStorage.getItem('Favorite');
+            data = JSON.parse(data);
+            return this.filterFavorite(data, id);
+        },
+        setFavorite(id) {
+            let data = localStorage.getItem('Favorite');
+            data = JSON.parse(data);
+
+            if (this.filterFavorite(data, id)) {
+                data = data.filter(elem => id !== elem.id);
+                this.localStorageSet('Favorite', data);
+            } else {
+                data.push({id});
+                this.localStorageSet('Favorite', data);
+            }
+            console.log(id);
+        }
+    },
 }
 </script>
 

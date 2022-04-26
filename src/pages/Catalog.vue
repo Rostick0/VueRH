@@ -10,6 +10,10 @@
                     <ShopProducts v-bind:products="products"></ShopProducts>
                 </div>
             </div>
+            
+            <div class="catalog__footer-page">
+                <AppFooterPager v-bind:countPage="countPager()"></AppFooterPager>
+            </div>
         </div>
     </div>
 </template>
@@ -118,6 +122,13 @@ export default {
                 },
             ],
         }
+    },
+    methods: {
+        countPager() {
+            let count = this.products.length;
+            count = Math.floor(count/9);
+            return count;
+        }
     }
 }
 </script>
@@ -137,5 +148,9 @@ export default {
 
 .catalog__products {
     width: 100%;
+}
+
+.catalog__footer-page {
+    margin-top: 2.5rem;
 }
 </style>

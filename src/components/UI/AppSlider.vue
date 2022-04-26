@@ -93,8 +93,6 @@ export default {
             if (this.slides.length - 1 > this.slideItem) {
                 this.slideItem++;
             }
-
-            console.log(this.slideItem);
         },
         setSlide(item) {
             this.slideItem = item;

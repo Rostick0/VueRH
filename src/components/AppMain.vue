@@ -8,13 +8,8 @@
 </template>
 
 <script>
-//import Main from '@/pages/Main';
-
 export default {
     name: 'AppMain',
-    // components: {
-    //     Main
-    // }
 }
 </script>
 
@@ -22,6 +17,7 @@ export default {
 <style lang="scss" scoped>
 .main__chat {
     position: fixed;
-    top: 0;
+    left: 2vw;
+    bottom: 3vh;
 }
 </style>

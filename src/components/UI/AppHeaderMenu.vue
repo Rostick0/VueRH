@@ -96,6 +96,22 @@ export default {
     position: absolute;
 
     z-index: 10000;
+    
+    animation: appearance;
+    animation-duration: 200ms;
+
+    @media (max-width: 1366px) {
+        left: -250%;
+    }
+}
+
+@keyframes appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .header-menu__links {

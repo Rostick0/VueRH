@@ -5,104 +5,12 @@
                 <div class="catalog__category_title">Категории:</div>
                 <ul class="catalog__category_ul">
                     <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryAll" type="radio" name="category" checked>
-                        <label class="catalog__category_label" for="categoryAll">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Все категории
-                            </span>
-                        </label>
+                        <AppInputRadio idAndFor="categoryAll" name="category" checked>Все категории</AppInputRadio>
                     </li>
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryBashkir" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryBashkir">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Башкирский мед
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryAltai" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryAltai">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Алтайский мед
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryBuckwheat" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryBuckwheat">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Гречишный мед
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryFake" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryFake">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Липовый мед
-                            </span>
-                        </label>
-                    </li>
-                    
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryNuts" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryNuts">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Мед с орехами
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryTaiga" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryTaiga">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Таежный крем-мед
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryProbes" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryProbes">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Пробники меда
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__category_item">
-                        <input class="catalog__category_input" id="categoryPortionedGramm35" type="radio" name="category">
-                        <label class="catalog__category_label" for="categoryPortionedGramm35">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__category_label_text">
-                                Порционный мед 35 гр.
-                            </span>
-                        </label>
+                    <li class="catalog__category_item" v-for="category in categories" v-bind:key="category.id">
+                        <AppInputRadio v-bind:idAndFor="category.idAndFor" name="category">
+                            {{ category.text }}
+                        </AppInputRadio>
                     </li>
                 </ul>
             </div>
@@ -111,48 +19,10 @@
                 <div class="catalog__manufacturer_title">Производитель:</div>
                 <ul class="catalog__manufacturer_ul">
                     <li class="catalog__manufacturer_item">
-                        <input class="catalog__manufacturer_input" id="manufacturerAll" type="radio" name="manufacturer" checked>
-                        <label class="catalog__manufacturer_label" for="manufacturerAll">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__manufacturer_label_text">
-                                Все производители
-                            </span>
-                        </label>
+                        <AppInputRadio idAndFor="manufacturerAll" name="manufacturer" checked>Все производители</AppInputRadio>
                     </li>
-                    <li class="catalog__manufacturer_item">
-                        <input class="catalog__manufacturer_input" id="manufacturerDeliciousHoney" type="radio" name="manufacturer">
-                        <label class="catalog__manufacturer_label" for="manufacturerDeliciousHoney">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__manufacturer_label_text">
-                                Самый вкусный мед
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__manufacturer_item">
-                        <input class="catalog__manufacturer_input" id="manufacturerDeliciousHoney1" type="radio" name="manufacturer">
-                        <label class="catalog__manufacturer_label" for="manufacturerDeliciousHoney1">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__manufacturer_label_text">
-                                Самый вкусный мед
-                            </span>
-                        </label>
-                    </li>
-                    <li class="catalog__manufacturer_item">
-                        <input class="catalog__manufacturer_input" id="manufacturerDeliciousHoney2" type="radio" name="manufacturer">
-                        <label class="catalog__manufacturer_label" for="manufacturerDeliciousHoney2">
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                            <span class="catalog__manufacturer_label_text">
-                                Самый вкусный мед
-                            </span>
-                        </label>
+                    <li class="catalog__manufacturer_item" v-for="manufacturer in manufacturers" v-bind:key="manufacturer.id">
+                        <AppInputRadio v-bind:idAndFor="manufacturer.idAndFor" name="manufacturer">{{ manufacturer.text }}</AppInputRadio>
                     </li>
                 </ul>
             </div>
@@ -184,26 +54,14 @@
 
                 <div class="catalog__popular_radios">
                     <div class="catalog__popular_radios-yes">
-                        <input class="catalog__manufacturer_input" id="popularYes" type="radio" name="popular" style="display: none">
-                        <label class="catalog__manufacturer_label" for="popularYes">
-                            <span class="catalog__manufacturer_label_text">
-                                Да
-                            </span>
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                        </label>
+                        <AppInputRadio idAndFor="popularYes" name="popular">
+                            Да
+                        </AppInputRadio>
                     </div>
                     <div class="catalog__popular_radios-no">
-                        <input class="catalog__manufacturer_input" id="popularNo" type="radio" name="popular" style="display: none">
-                        <label class="catalog__manufacturer_label" for="popularNo">
-                            <span class="catalog__manufacturer_label_text">
-                                Нет
-                            </span>
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                        </label>
+                        <AppInputRadio idAndFor="popularNo" name="popular">
+                            Нет
+                        </AppInputRadio>
                     </div>
                 </div>
             </div>
@@ -215,26 +73,14 @@
 
                 <div class="catalog__discount_radios">
                     <div class="catalog__discount_radios-yes">
-                        <input class="catalog__manufacturer_input" id="popularYes" type="radio" name="popular" style="display: none">
-                        <label class="catalog__manufacturer_label" for="popularYes">
-                            <span class="catalog__manufacturer_label_text">
-                                Да
-                            </span>
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                        </label>
+                        <AppInputRadio idAndFor="discountYes" name="discount">
+                            Да
+                        </AppInputRadio>
                     </div>
                     <div class="catalog__discount_radios-no">
-                        <input class="catalog__manufacturer_input" id="popularNo" type="radio" name="popular" style="display: none">
-                        <label class="catalog__manufacturer_label" for="popularNo">
-                            <span class="catalog__manufacturer_label_text">
-                                Нет
-                            </span>
-                            <svg class="catalog__radio-cheked" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="catalog__radio-checked_item" d="M12.4286 1H5.57143L1 7.5L5.57143 14H12.4286L17 7.5L12.4286 1Z" fill="#FEFEFE" stroke="#00A23D"/>
-                            </svg>
-                        </label>
+                        <AppInputRadio idAndFor="discountNo" name="discount">
+                            Нет
+                        </AppInputRadio>
                     </div>
                 </div>
             </div>
@@ -254,7 +100,81 @@
 
 <script>
 export default {
-    name: 'AppShopAside'
+    name: 'AppShopAside',
+    data() {
+        return {
+            categories: [
+                {
+                    id: 2,
+                    text: 'Башкирский мед',
+                    link: '',
+                    idAndFor: 'categoryBashkir'
+                },
+                {
+                    id: 3,
+                    text: 'Алтайский мед',
+                    link: '',
+                    idAndFor: 'categoryAltai'
+                },
+                {
+                    id: 4,
+                    text: 'Гречишный мед',
+                    link: '',
+                    idAndFor: 'categoryBuckwheat'
+                },
+                {
+                    id: 5,
+                    text: 'Липовый мед',
+                    link: '',
+                    idAndFor: 'categoryFake'
+                },
+                {
+                    id: 6,
+                    text: 'Мед с орехами',
+                    link: '',
+                    idAndFor: 'categoryNuts'
+                },
+                {
+                    id: 7,
+                    text: 'Таежный крем-мед',
+                    link: '',
+                    idAndFor: 'categoryTaiga'
+                },
+                {
+                    id: 8,
+                    text: 'Пробники меда',
+                    link: '',
+                    idAndFor: 'categoryProbes'
+                },
+                {
+                    id: 9,
+                    text: 'Порционный мед 35 гр.',
+                    link: '',
+                    idAndFor: 'categoryPortionedGramm35'
+                }
+            ],
+            manufacturers: [
+                {
+                    id: 2,
+                    text: 'Самый вкусный мед',
+                    link: '',
+                    idAndFor: 'manufacturerDeliciousHoney'
+                },
+                {
+                    id: 3,
+                    text: 'Самый вкусный мед',
+                    link: '',
+                    idAndFor: 'manufacturerDeliciousHoney1'
+                },
+                {
+                    id: 4,
+                    text: 'Самый вкусный мед',
+                    link: '',
+                    idAndFor: 'manufacturerDeliciousHoney2'
+                }
+            ]
+        }
+    }
 }
 </script>
 
@@ -300,36 +220,6 @@ export default {
 
     &:last-child {
         margin-bottom: 0;
-    }
-
-    label {
-        cursor: pointer;
-
-        display: flex;
-
-        position: relative;
-
-        transition: 200ms;
-
-        width: 100%;
-
-        svg {
-            margin-right: 0.375rem;
-        }
-    }
-
-    input[type=radio]:checked + label svg .catalog__radio-checked_item {
-        fill: #00A23D;
-        transition: 200ms;
-    }
-
-    input[type=radio]:checked + label .catalog__manufacturer_label_text,
-    input[type=radio]:checked + label .catalog__category_label_text {
-        color: #00A23D;
-    }
-
-    input {
-        display: none;
     }
 }
 
