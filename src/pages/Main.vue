@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="novelty-bottom">
-                        <ShopProducts v-bind:products="products"></ShopProducts>
+                        <ShopProducts class="novelty-bottom__inner" v-bind:products="products"></ShopProducts>
                     </div>
                 </div>
             </div>
@@ -329,11 +329,19 @@ export default {
 }
 
 .category-bottom {
-    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-gap: 2.75rem;
 
     @media (max-width: 1024px) {
         & {
-            flex-wrap: wrap;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 576px) {
+        & {
+            grid-template-columns: 1fr;
         }
     }
 }
@@ -344,15 +352,11 @@ export default {
     border-radius: 5px;
     border: 2px solid rgba(0, 0, 0, 0);
 
-    flex: 1 0 20%;
-
-    margin-right: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     padding: 1.75rem 2.25rem 0.75rem 2.25rem;
-
-    &:last-child {
-        margin-right: 0;
-    }
 
     &:nth-child(2) {
         img {
@@ -363,30 +367,11 @@ export default {
     &:hover {
         border: 2px solid #00A23D;
 
-        .category-bottom__item_text {
-            transform: scaleY(1rem);
-        }
+        transform: scale(1.05);
     }
 
     .category-bottom__item_text {
         margin-top: 1.375rem;
-    }
-
-    @media (max-width: 1024px) {
-        & {
-            flex: 1 1 45%;
-
-            margin-right: 0.625rem;
-            margin-bottom: 0.625rem;
-        }
-
-        &:nth-child(2n) {
-            margin-right: 0;
-        }
-
-        &:nth-last-child(-n+2) {
-            margin-bottom: 0;
-        }
     }
 }
 
@@ -394,7 +379,7 @@ export default {
     text-align: center;
 
     img {
-        
+
     }
 }
 
@@ -586,6 +571,22 @@ export default {
 
 .novelty-product__button {
     width: 100%;
+}
+
+.novelty-bottom__inner {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @media (max-width: 1024px) {
+        & {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 576px) {
+        & {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 

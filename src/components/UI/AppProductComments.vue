@@ -139,7 +139,13 @@ export default {
 }
 
 .comment-bottom {
-    display: flex;
+    grid-template-columns: 1fr 2.5fr;
+    display: grid;
+    grid-gap: 1.25rem;
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .comment__content-img {
@@ -147,10 +153,6 @@ export default {
 
     border: 2px solid #00A23D;
     border-radius: 5px 0px 0px 5px;
-
-    flex: 1 1 38%;
-
-    margin-right: 1.25rem;
 }
 
 .comment__no-img {
@@ -161,6 +163,7 @@ export default {
 
         display: block;
         margin-top: 2.25rem;
+        margin-bottom: 2.25rem;
     }
 
     img {

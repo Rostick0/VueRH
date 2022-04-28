@@ -18,7 +18,7 @@
                     </li>
                 </ul>
 
-                <button v-on:click="setFavorite(product.id)">
+                <button v-on:click="setFavorite(product)">
                     <img v-if="checkFavorite(product.id)" class="shop-product__check-favourite" src="@/img/like-active.svg" alt="">
                     <img v-else class="shop-product__check-favourite" src="@/img/like_no-active.svg" alt="">
                 </button>
@@ -87,9 +87,13 @@ export default {
     },
     methods: {
         filterFavorite(data, id) {
-            data = data.filter(elem => id === elem.id);
-            data = data.length
-            return data;
+            if (data) {
+                data = data.filter(elem => id === elem.id);
+                data = data.length
+                return data;
+            }
+
+            return false
         },
         localStorageSet(name, data) {
             data = JSON.stringify(data);
@@ -97,21 +101,24 @@ export default {
         },
         checkFavorite(id) {
             let data = localStorage.getItem('Favorite');
-            data = JSON.parse(data);
-            return this.filterFavorite(data, id);
+            if (data) {
+                data = JSON.parse(data);
+                return this.filterFavorite(data, id);
+            }
+            return false;
         },
-        setFavorite(id) {
+        setFavorite(product) {
+            console.log({...product})
             let data = localStorage.getItem('Favorite');
-            data = JSON.parse(data);
+            data = data ? JSON.parse(data) : [];
 
-            if (this.filterFavorite(data, id)) {
-                data = data.filter(elem => id !== elem.id);
+            if (this.filterFavorite(data, product.id)) {
+                data = data.filter(elem => product.id !== elem.id);
                 this.localStorageSet('Favorite', data);
             } else {
-                data.push({id});
+                data.push({...product});
                 this.localStorageSet('Favorite', data);
             }
-            console.log(id);
         }
     },
 }
@@ -119,11 +126,22 @@ export default {
 
 <style lang="scss" scoped>
 .shop-products {
-    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
     flex-wrap: wrap;
+    grid-gap: 3.25rem 1.875rem;
 
-    margin-right: -1.875rem;
-    margin-bottom: -3.25rem;
+    @media (max-width: 1024px) {
+        & {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 576px) {
+        & {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 .shop-product {
@@ -132,22 +150,9 @@ export default {
 
     flex: 1 1 20%;
 
+    transition: 50ms;
     text-align: center;
 
-    margin-right: 1.875rem;
-    margin-bottom: 3.25rem;
-
-    // &:nth-child(4n) {
-    //     margin-right: 0;
-    // }
-
-    // &:last-child {
-    //     margin-right: 0;
-    // }
-
-    // &:nth-last-child(-n + 4) {
-    //     margin-bottom: 0;
-    // }
 
     &:hover {
         border: 1px solid #00A23D;

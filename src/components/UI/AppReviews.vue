@@ -89,7 +89,15 @@ export default {
 
 <style lang="scss" scoped>
 .reviews-cards {
-    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-gap: 2rem;
+
+    @media (max-width: 1024px) {
+        & {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 .reviews-card {
@@ -97,11 +105,6 @@ export default {
     border-radius: 5px;
 
     padding: 1rem 1.75rem 1.5rem 1rem;
-    margin-right: 2rem;
-
-    &:nth-child(3n) {
-        margin-right: 0;
-    }
 
     &:hover {
         outline: 2px solid #00A23D;

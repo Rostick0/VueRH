@@ -1,7 +1,7 @@
 <template>
     <div class="catalog">
         <div class="container">
-            <AppNavigation></AppNavigation>
+            <AppNavigation v-bind:navigationItems="navigationItems"></AppNavigation>
 
             <div class="catalog__content">
                 <AppShopAside></AppShopAside>
@@ -23,6 +23,13 @@ export default {
     name: 'Catalog',
     data() {
         return {
+            navigationItems: [
+                {
+                    id: 1,
+                    text: 'Каталог',
+                    link: '/catalog',
+                } 
+            ],
             products: [
                 {
                     id: 1,
@@ -128,6 +135,9 @@ export default {
             let count = this.products.length;
             count = Math.floor(count/9);
             return count;
+        },
+        searchProducts(array, input) {
+            return array.filter(elem => elem.name.toUpperCase().indexOf(input) !== -1)
         }
     }
 }

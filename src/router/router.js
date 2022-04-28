@@ -4,6 +4,7 @@ import Product from '@/pages/Product';
 import Blogs from '@/pages/Blogs';
 import Blog from '@/pages/Blog';
 import Cart from '@/pages/Cart';
+import User from '@/pages/User';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -30,6 +31,10 @@ const routes = [
     {
         path: '/cart',
         component: Cart
+    },
+    {
+        path: '/user',
+        component: User
     }
 ]
 

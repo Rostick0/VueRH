@@ -1,37 +1,13 @@
 <template>
     <div class="product">
         <div class="container">
-            <AppNavigation></AppNavigation>
+            <AppNavigation v-bind:navigationItems="navigationItems"></AppNavigation>
 
             <div class="product__content">
                 <div class="product__top">
-                    <div class="product__images">
-                        <div class="product__images_scroll">
-                            <div class="product__arrow-top">
-                                <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M27 18L13.5806 2L1 18" stroke="#424242" stroke-width="2"/>
-                                </svg>
-                            </div>
+                    <AppProductSliderImg class="product__images" v-bind:imagesSliders="imagesSliders"></AppProductSliderImg>
 
-                            <div class="">
-                                <img src="@/img/product_honey.png" alt="">
-                                <img src="@/img/product_honey.png" alt="">
-                                <img src="@/img/product_honey.png" alt="">
-                            </div>
-
-                            <div class="product__arrow-bottom">
-                                <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M27 1L13.5806 17L1 1" stroke="#424242" stroke-width="2"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="product__image_main">
-                            <img src="@/img/product_honey.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="product__info">
+                    <form class="product__info" method="POST" onsubmit="return false;">
                         <div class="product__evaluation">
                             <RatingStars></RatingStars>
 
@@ -50,16 +26,22 @@
 
                         <div class="product__weight">
                             <div class="product__weight_select">
-                                <AppButton>100 гр.</AppButton>
-                                <AppButton>250 гр.</AppButton>
-                                <AppButton>500 гр.</AppButton>
-                                <AppButton>800 гр.</AppButton>
-                                <AppButton>1 кг.</AppButton>
-                                <AppButton>1,5 кг.</AppButton>
+                                <AppButtonRadio idAndFor="100" name="weight" styleSpan="padding: 0.5rem 0; border-radius: 2px;">100 гр.</AppButtonRadio>
+                                <AppButtonRadio idAndFor="250" name="weight" styleSpan="padding: 0.5rem 0; border-radius: 2px;">250 гр.</AppButtonRadio>
+                                <AppButtonRadio idAndFor="500" name="weight" styleSpan="padding: 0.5rem 0; border-radius: 2px;">500 гр.</AppButtonRadio>
+                                <AppButtonRadio idAndFor="800" name="weight" styleSpan="padding: 0.5rem 0; border-radius: 2px;">800 гр.</AppButtonRadio>
+                                <AppButtonRadio idAndFor="1" name="weight" styleSpan="padding: 0.5rem 0; border-radius: 2px;">1 кг.</AppButtonRadio>
+                                <AppButtonRadio idAndFor="1,5" name="weight" styleSpan="padding: 0.5rem 0; border-radius: 2px;">1,5 кг.</AppButtonRadio>
                             </div>
                             <div class="product__count">
                                 <div class="product__count_input">
-                                    <input type="number">
+                                    <button v-on:click="incrementCount">
+                                        +
+                                    </button>
+                                    <input type="number" v-model="this.count">
+                                    <button v-on:click="decrementCount">
+                                        -
+                                    </button>
                                 </div>
                                 <div class="product__discount">
                                     Скидка!
@@ -79,10 +61,10 @@
                         </div>
 
                         <div class="product__info_buttons">
-                            <AppButton>Купить в 1 клик</AppButton>
-                            <AppButton>В корзину</AppButton>
+                            <AppButton class="product__info_button">Купить в 1 клик</AppButton>
+                            <AppButton class="product__info_button">В корзину</AppButton>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <div class="product__bottom">
@@ -107,6 +89,46 @@ export default {
     name: 'Product',
     data() {
         return {
+            count: 0,
+            imagesSliders: [
+                {
+                    id: 1,
+                    path: 'product_honey.png'
+                },
+                {
+                    id: 2,
+                    path: 'chat_avatar.png'
+                },
+                {
+                    id: 3,
+                    path: 'product_honey.png'
+                },
+                {
+                    id: 4,
+                    path: 'product_honey.png'
+                },
+                {
+                    id: 5,
+                    path: 'product_honey.png'
+                }
+            ],
+            navigationItems: [
+                {
+                    id: 1,
+                    text: 'Каталог',
+                    link: '/catalog',
+                },
+                {
+                    id: 2,
+                    text: 'Башкирский мед',
+                    link: '/catalog',
+                },
+                {
+                    id: 3,
+                    text: `Самый вкусный мед`,
+                    link: '#',
+                },
+            ],
             comments: [
                 {
                     id: 1,
@@ -166,11 +188,188 @@ export default {
                 }
             ]
         }
+    },
+    methods: {
+        incrementCount() {
+            return this.count++;
+        },
+        decrementCount() {
+            if (this.count > 0) {
+                return this.count--;
+            }
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.product__top {
+    display: flex;
+
+    @media (max-width: 1024px) {
+        & {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &:first-child {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.product__images {
+    display: flex;
+
+    flex: 1 1 100%;
+}
+
+.product__info {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 100%;
+}
+
+.product__evaluation {
+    display: flex;
+    justify-content: end;
+
+    margin-bottom: 1.75rem;
+}
+
+.product__title {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 2.25rem;
+}
+
+.product__name {
+    font-family: 'OrchideaPro-Bold';
+    font-size: 1.5rem;
+}
+
+.product__availability {
+    background: #FAAF3A;
+    border-radius: 5px;
+
+    color: #000000;
+
+    font-family: 'OrchideaPro-Bold';
+
+    padding: 0.375rem 0.75rem;
+}
+
+.product__weight {
+    display: inline-block;
+
+    margin: 0 auto;
+}
+
+.product__weight_select {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    & > * {
+        flex: 0 1 26%;
+
+        margin-bottom: 1.25rem;
+    }
+}
+
+.product__count {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+}
+
+.product__count_input {
+    border: 1px solid #00A23D;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+
+    margin-right: 1.75rem;
+
+    width: 7rem;
+
+    button {
+        background: none;
+
+        padding: 0.5rem 0.875rem;
+    }
+
+    button:first-child {
+        border-right: 1px solid #00A23D;
+    }
+    
+    button:last-child {
+        border-left: 1px solid #00A23D;
+    }
+    
+    input {
+        // border-left: 1px solid #00A23D;
+        // border-right: 1px solid #00A23D;
+
+        display: inline-block;
+
+        padding: 0 0.875rem;
+
+        text-align: center;
+
+        width: 100%;
+    }
+
+    & > * {
+        // padding: 0.5rem 0.875rem;
+    }
+}
+
+.product__discount {
+    background: #FAAF3A;
+    border-radius: 5px;
+
+    color: #000000;
+
+    font-family: 'OrchideaPro-Bold';
+
+    padding: 0.25rem 0.5rem;
+
+    margin-right: 1rem;
+}
+
+.product__price_del {
+    margin-right: 1rem;
+}
+
+.product__price_sum {
+    display: flex;
+}
+
+.product__weight_final {
+    border: 2px solid #00A23D;
+    border-radius: 5px;
+
+    display: inline-block;
+
+    padding: 0.75rem 2.5rem;
+    margin-bottom: 1.75rem;
+}
+
+
+.product__info_button {
+    padding: 0.75rem 1.875rem;
+    margin-left: 2rem;
+
+    &:first-child {
+        margin-right: 2.125rem;
+    }
+}
+
 .product__switching {
     border-bottom: 0.5px solid #BDBDBD;
 

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <AppNavigation></AppNavigation>
+        <AppNavigation v-bind:navigationItems="navigationItems"></AppNavigation>
 
         <div class="cart">
             <div class="cart__title">
@@ -81,10 +81,10 @@
                             </div>
 
                             <div class="cart__inputs">
-                                <AppInput class="cart__input" v-model="val" placeholder="Имя" type="text"></AppInput>
-                                <AppInput class="cart__input" placeholder="Фамилия" type="text"></AppInput>
-                                <AppInput class="cart__input" placeholder="+ 7 (000) - 000 - 00 - 00" type="number"></AppInput>
-                                <AppInput class="cart__input" placeholder="E-mail адрес" type="number"></AppInput>
+                                <AppInput class="cart__input" v-model="val" important placeholder="Имя" type="text"></AppInput>
+                                <AppInput class="cart__input" important placeholder="Фамилия" type="text"></AppInput>
+                                <AppInput class="cart__input" important placeholder="+ 7 (000) - 000 - 00 - 00" type="number"></AppInput>
+                                <AppInput class="cart__input" important placeholder="E-mail адрес" type="email"></AppInput>
                             </div>
                         </div>
 
@@ -103,18 +103,10 @@
                             </div>
 
                             <div class="cart__delivery_all-select">
-                                <select class="cart__delivery_select">
-                                    <option value="1">Страна</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                                <select class="cart__delivery_select">
-                                    <option value="region">Регион</option>
-                                </select>
-                                <select class="cart__delivery_select">
-                                    <option value="region">Регион</option>
-                                </select>
-                                <select class="cart__delivery_select" style="opacity:0;width:0;height:0;"></select>
+                                <AppSelect class="cart__delivery_select"></AppSelect>
+                                <AppSelect class="cart__delivery_select"></AppSelect>
+                                <AppSelect class="cart__delivery_select"></AppSelect>
+                                <AppSelect class="cart__delivery_select" style="opacity:0;width:0;height:0;"></AppSelect>
                             </div>
                         </div>
 
@@ -123,12 +115,8 @@
                                 Способ доставки:
                             </div>
                             <div class="cart__method_buttons">
-                                 <AppButton class="cart__method_button">
-                                    Курьер
-                                 </AppButton>
-                                 <AppButton class="cart__method_button">
-                                    Самовывоз
-                                 </AppButton>
+                                <AppButtonRadio class="cart__method_button" idAndFor="courier" name="delivery" styleSpan="padding: 0.875rem 0; border-radius: 3px 0 0 3px;">Курьер</AppButtonRadio>
+                                <AppButtonRadio class="cart__method_button" idAndFor="pickup" name="delivery" styleSpan="padding: 0.875rem 0; border-radius: 0 3px 3px 0;">Самовывоз</AppButtonRadio>
                             </div>
                             <ul class="cart__method_info">
                                 <li class="cart__method_info_item">
@@ -166,16 +154,12 @@
                                 Оплата:
                             </div>
                             <div class="cart__pay_buttons">
-                                <AppButton class="cart__pay_button">
-                                    <span>
-                                        Оплата картой на сайте
-                                    </span>
-                                </AppButton>
-                                <AppButton class="cart__pay_button">
-                                    <span>
-                                        Оплата наличными, при получении заказа
-                                    </span>
-                                </AppButton>
+                                <AppButtonRadio class="cart__pay_button" idAndFor="card" name="pay" styleSpan="padding:0.75rem 1rem; border-radius: 3px 3px 0 0; justify-content: left;">
+                                    Оплата картой на сайте
+                                </AppButtonRadio>
+                                <AppButtonRadio class="cart__pay_button" idAndFor="cash" name="pay" styleSpan="padding:0.75rem 1rem; border-radius: 0 0 3px 3px; justify-content: left;">
+                                    Оплата наличными, при получении заказа
+                                </AppButtonRadio>
                             </div>
                         </div>
 
@@ -230,7 +214,14 @@ export default {
     name: 'Cart',
     data() {
         return {
-            val: ''
+            val: '',
+            navigationItems: [
+                {
+                    id: 1,
+                    text: 'Корзина',
+                    link: '/cart',
+                }
+            ],
         }
     }
 }
@@ -437,13 +428,7 @@ export default {
 }
 
 .cart__delivery_select {
-    border: 1px solid #00A23D;
-    border-radius: 3px;
     flex: 1 1 40%;
-
-    padding: 0.625rem 1rem;
-    margin-right: 1.5rem;
-    margin-bottom: 1.25rem;
 }
 
 .cart__method {
@@ -466,15 +451,15 @@ export default {
     }
 }
 
-.cart__method_button {
-    border-radius: 0 3px 3px 0;
+// .cart__method_button {
+//     border-radius: 0 3px 3px 0;
 
-    padding: 0.875rem 0;
+//     padding: 0.875rem 0;
 
-    &:first-child {
-        border-radius: 3px 0px 0px 3px;
-    }
-}
+//     &:first-child {
+//         border-radius: 3px 0px 0px 3px;
+//     }
+// }
 
 .cart__method_info {
     background: #FEFEFE;
@@ -510,16 +495,8 @@ export default {
 }
 
 .cart__pay_button {
-    border-radius: 0 0 3px 3px;
-
     display: flex;
     justify-content: flex-start;
-
-    padding: 0.75rem 1rem;
-
-    &:first-child {
-        border-radius: 3px 3px 0 0;
-    }
 }
 
 .cart__commet_title {

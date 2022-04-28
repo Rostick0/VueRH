@@ -88,22 +88,21 @@ export default {
 
 <style lang="scss" scoped>
 .articles {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-gap: 2rem;
+
+    @media (max-width: 1024px) {
+        & {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 .article {
-
-    
     color: #424242;
 
     flex: 1 0 28%;
-
-    margin-right: 2rem;
-
-    &:nth-child(3n) {
-        margin-right: 0;
-    }
 }
 
 .article_content {

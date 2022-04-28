@@ -86,8 +86,6 @@ export default {
             if (0 < this.slideItem) {
                 this.slideItem--;
             }
-
-            console.log(this.slideItem);
         },
         rightArrow() {
             if (this.slides.length - 1 > this.slideItem) {
@@ -112,6 +110,10 @@ export default {
 
 .slider__content-top {
     display: flex;
+}
+
+.slider__content {
+    margin: 0 0.875rem;
 }
 
 .slider__text {
@@ -151,6 +153,12 @@ export default {
 
     img {
         max-height: 18.75rem;
+    }
+
+    @media (max-width: 1024px) {
+        img {
+            width: 100%;
+        }
     }
 }
 

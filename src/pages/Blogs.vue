@@ -1,7 +1,7 @@
 <template>
     <div class="blog">
         <div class="container">
-            <AppNavigation></AppNavigation>
+            <AppNavigation v-bind:navigationItems="navigationItems"></AppNavigation>
 
             <ul class="blog__category_buttons">
                 <li class="blog__category_item">
@@ -177,6 +177,13 @@ export default {
     name: 'Blog',
     data() {
         return {
+            navigationItems: [
+                {
+                    id: 1,
+                    text: 'Блог',
+                    link: '/blogs',
+                }
+            ],
             articles: [
                 {
                     id: 1,
@@ -330,11 +337,36 @@ export default {
 }
 
 .blog__category_buttons {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(6, 1fr);
+    display: grid;
+    grid-gap: 1.25rem;
 
     margin-right: -1.25rem;
     margin-bottom: 1.25rem;
+
+    @media (max-width: 1800px) {
+        & {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    @media (max-width: 1024px) {
+        & {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @media (max-width: 800px) {
+        & {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        & {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 }
 
 .blog__bottom-articles {
@@ -352,11 +384,9 @@ export default {
 
     font-family: 'OrchideaPro-SemiBold';
 
-    margin-right: 1.25rem;
-    margin-bottom: 1.25rem;
     padding: 1rem 0;
 
-    width: 11.25rem;
+    width: 100%;
 
     &:hover {
         background: #00A23D;

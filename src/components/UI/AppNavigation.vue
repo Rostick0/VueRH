@@ -6,13 +6,10 @@
                     Главная
                 </router-link>
             </li>
-            <li class="catalog__navigation_item">
-                <router-link to="/catalog">
-                    Каталог
+            <li v-for="navigationItem in navigationItems" v-bind:key="navigationItem.id" class="catalog__navigation_item">
+                <router-link :to="navigationItem.link">
+                    {{ navigationItem.text }}
                 </router-link>
-            </li>
-            <li class="catalog__navigation_item">
-                Мёд
             </li>
         </ul>
     </nav>
@@ -21,6 +18,12 @@
 <script>
 export default {
     name: 'AppNavigation',
+    props: {
+        navigationItems: {
+            type: Array,
+            required: true
+        }
+    }
 }
 </script>
 
@@ -48,6 +51,14 @@ export default {
 
     &:last-child::after {
         content: '';
+    }
+
+    &:last-child {
+        color: #00A23D;
+
+        a {
+            color: #00A23D;
+        }
     }
 
     a {

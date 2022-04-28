@@ -1,4 +1,5 @@
 <template>
+h2
   <AppHeader></AppHeader>
 
   <AppMain></AppMain>
@@ -26,6 +27,8 @@ export default {
 	padding: 0;
 	margin: 0;
 	border: 0;
+
+	transition: 200ms;
 }
 *,
 *:before,

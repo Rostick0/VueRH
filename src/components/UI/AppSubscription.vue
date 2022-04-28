@@ -60,7 +60,8 @@ export default {
     }
 }
 
-.button {
+.subscription__button {
+    border-left: 4px solid #00A23D;
     border-radius: 0;
 
     padding: 0.625rem 1rem;

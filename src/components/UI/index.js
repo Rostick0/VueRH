@@ -18,6 +18,9 @@ import AppInput from '@/components/UI/AppInput';
 import AppChat from '@/components/UI/AppChat'
 import AppInputRadio from '@/components/UI/AppInputRadio';
 import AppFooterPager from '@/components/UI/AppFooterPager';
+import AppSelect from '@/components/UI/AppSelect';
+import AppButtonRadio from '@/components/UI/AppButtonRadio';
+import AppProductSliderImg from '@/components/UI/AppProductSliderImg';
 
 export default [
     AppButton,
@@ -39,5 +42,8 @@ export default [
     AppInput,
     AppChat,
     AppInputRadio,
-    AppFooterPager
+    AppFooterPager,
+    AppSelect,
+    AppButtonRadio,
+    AppProductSliderImg
 ];

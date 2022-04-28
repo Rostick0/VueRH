@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <AppNavigation></AppNavigation>
+        <AppNavigation v-bind:navigationItems="navigationItems"></AppNavigation>
 
         <article class="article">
             <div class="article__info">
@@ -246,6 +246,23 @@
 export default {
     data() {
         return {
+            navigationItems: [
+                {
+                    id: 1,
+                    text: 'Блог',
+                    link: '/blogs',
+                },
+                {
+                    id: 2,
+                    text: 'О меде',
+                    link: '/blogs',
+                },
+                {
+                    id: 3,
+                    text: 'Липовый мед',
+                    link: '#',
+                },
+            ],
             products: [
                 {
                     id: 1,
@@ -351,7 +368,7 @@ export default {
 .article__info {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: start;
 
     margin-bottom: 1.25rem;
 }
