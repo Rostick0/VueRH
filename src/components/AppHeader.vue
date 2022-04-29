@@ -34,10 +34,10 @@
                     </router-link>
 
                     <form class="header-bottom__input" method="POST" onsubmit="return false;">
-                        <input type="text" placeholder="Поиск по сайту">
+                        <input v-model="search" type="text" placeholder="Поиск по сайту">
                     </form>
 
-                    <router-link to="/blogs">
+                    <router-link class="header-bottom__href" to="/blogs">
                         <button class="header-bottom__transition">
                             Перейти в блог
                         </button>
@@ -45,6 +45,13 @@
                 </div>
 
 				<ul class="header-bottom__interaction">
+                    <li class="header-bottom__interaction_item">
+                        <button v-on:click="setShow" class="header-top__burger">
+                            <span>
+                                <AppHeaderMenu v-bind:show="show"></AppHeaderMenu>
+                            </span>
+                        </button>
+                    </li>
 					<li class="header-bottom__interaction_item favorite">
 						<router-link to="/cart">
                             <span>{{ checkCountFavorite() }}</span>
@@ -74,6 +81,7 @@ export default {
     data() {
         return {
             show: false,
+            search: '',
             count: 0
         }
     },
@@ -93,6 +101,11 @@ export default {
         checkCountCart() {
 
         }
+    },
+    watch: {
+        search() {
+            console.log(this.search)
+        }
     }
 }
 </script>
@@ -105,6 +118,12 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media (max-width: 576px) {
+            .header-top__burger {
+                display: none;
+            }
+        }
     }
     
     .header-top__burger {
@@ -191,6 +210,14 @@ export default {
         grid-template-columns: 1fr 2.25fr 1fr;
         display: grid;
         grid-gap: 2.375rem;
+
+        width: 100%;
+    }
+
+    @media (max-width: 576px) {
+        .header-bottom__left {
+            grid-template-columns: 1fr;
+        }
     }
     
     .header-bottom__catalog {
@@ -225,6 +252,12 @@ export default {
             }
         }
     }
+
+    @media (max-width: 576px) {
+        .header-bottom__catalog {
+            display: none;
+        }
+    }
     
     .header-bottom__burger {
         @extend .header-top__burger;
@@ -254,6 +287,12 @@ export default {
         }
     }
     
+    @media (max-width: 576px) {
+        .header-bottom__href {
+            display: none;
+        }
+    }
+
     .header-bottom__transition {
         background: #FAAF3A;
         border-radius: 5px;
@@ -264,18 +303,24 @@ export default {
     }
     
     .header-bottom__interaction {
-        display: flex;
-    
-        & > * {
-            margin-right: 2.5rem;
-        }
-    
-        & > *:last-child {
-            margin-right: 0;
+        grid-template-columns: 1fr 1fr 1fr;
+        display: grid;
+        grid-gap: 2.5rem;
+    }
+
+    @media (max-width: 576px) {
+        .header-bottom__interaction {
+            position: fixed;
+            bottom: 0;
+
+            z-index: 10000;
         }
     }
     
     .header-bottom__interaction_item {
+        &:first-child {
+            display: none;
+        }
         
         & > * {
             display: flex;

@@ -1,5 +1,4 @@
 <template>
-h2
   <AppHeader></AppHeader>
 
   <AppMain></AppMain>

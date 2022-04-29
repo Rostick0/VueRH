@@ -76,6 +76,12 @@ export default {
 <style lang="scss" scoped>
 .chat {
     max-width: 20rem;
+
+    @media (max-width: 576px) {
+        & {
+            display: none;
+        }
+    }
 }
 
 .chat__activator {

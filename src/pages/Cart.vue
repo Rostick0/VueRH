@@ -103,10 +103,9 @@
                             </div>
 
                             <div class="cart__delivery_all-select">
-                                <AppSelect class="cart__delivery_select"></AppSelect>
-                                <AppSelect class="cart__delivery_select"></AppSelect>
-                                <AppSelect class="cart__delivery_select"></AppSelect>
-                                <AppSelect class="cart__delivery_select" style="opacity:0;width:0;height:0;"></AppSelect>
+                                <AppSelect v-bind:values="values" class="cart__delivery_select"></AppSelect>
+                                <AppSelect v-bind:values="values" class="cart__delivery_select"></AppSelect>
+                                <AppSelect v-bind:values="values" class="cart__delivery_select"></AppSelect>
                             </div>
                         </div>
 
@@ -222,6 +221,23 @@ export default {
                     link: '/cart',
                 }
             ],
+            values: [
+                {
+                    id: 1,
+                    value: 1,
+                    text: 'Страна'
+                },
+                {
+                    id: 2,
+                    value: 2,
+                    text: '2'
+                },
+                {
+                    id: 3,
+                    value: 3,
+                    text: '3'
+                }
+            ]
         }
     }
 }
@@ -420,11 +436,9 @@ export default {
 }
 
 .cart__delivery_all-select {
-    display: flex;
-    flex-wrap: wrap;
-
-    margin-right: -1.5rem;
-    margin-bottom: -1.25rem
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-gap: 1.5rem 1.25rem;
 }
 
 .cart__delivery_select {

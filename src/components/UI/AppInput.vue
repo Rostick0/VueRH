@@ -42,6 +42,10 @@ export default {
     position: relative;
 
     width: 100%;
+
+    input {
+        width: 100%;
+    }
 }
 
 .input__svg {

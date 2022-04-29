@@ -69,6 +69,7 @@ export default {
     name: 'ShopProducts',
     data() {
         return {
+            isFavorite: false
         }
     },
     props: {
@@ -92,8 +93,6 @@ export default {
                 data = data.length
                 return data;
             }
-
-            return false
         },
         localStorageSet(name, data) {
             data = JSON.stringify(data);
@@ -108,7 +107,6 @@ export default {
             return false;
         },
         setFavorite(product) {
-            console.log({...product})
             let data = localStorage.getItem('Favorite');
             data = data ? JSON.parse(data) : [];
 
@@ -120,7 +118,7 @@ export default {
                 this.localStorageSet('Favorite', data);
             }
         }
-    },
+    }
 }
 </script>
 

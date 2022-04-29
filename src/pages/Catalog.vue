@@ -7,7 +7,7 @@
                 <AppShopAside></AppShopAside>
 
                 <div class="catalog__products">
-                    <ShopProducts v-bind:products="products"></ShopProducts>
+                    <ShopProducts v-bind:products="searchProducts(products, headerInput)"></ShopProducts>
                 </div>
             </div>
             
@@ -33,7 +33,7 @@ export default {
             products: [
                 {
                     id: 1,
-                    name: 'Самый вкусный мед',
+                    name: 'Самый вкусный медый',
                     path: 'honey.png',
                     delPrice: 0,
                     ruble: 150,
@@ -130,6 +130,12 @@ export default {
             ],
         }
     },
+    props: {
+        headerInput: {
+            type: String,
+            default: ''
+        }
+    },
     methods: {
         countPager() {
             let count = this.products.length;
@@ -137,7 +143,7 @@ export default {
             return count;
         },
         searchProducts(array, input) {
-            return array.filter(elem => elem.name.toUpperCase().indexOf(input) !== -1)
+            return array.filter(elem => elem.name.search(input) !== -1)
         }
     }
 }

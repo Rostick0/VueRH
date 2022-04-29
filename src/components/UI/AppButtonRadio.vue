@@ -28,7 +28,7 @@ export default {
         },
         borderRadius: {
             type: [String, Number],
-            default: '0',
+            default: '5px',
         }
     }
 }

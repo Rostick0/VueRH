@@ -1,6 +1,6 @@
 <template>
-    <div class="block-select">
-        <select class="select" v-on:click="printData">
+    <div v-on:click="arrowAnim" v-bind:class="{ active: selectActive }" class="block-select">
+        <select class="select">
             <option class="select__option" v-for="value in values" v-bind:key="value.id" v-bind:value="value.value">
                 {{ value.text }}
             </option>
@@ -9,11 +9,6 @@
             <path d="M1 1L7.63594 6L13.8571 1" stroke="#BDBDBD" stroke-width="2"/>
         </svg>
     </div>
-    <!-- <ul class="select" v-on:click="printData">
-        <li class="select__item">Страна</li>
-        <li class="select__item">2</li>
-        <li class="select__item">3</li>
-    </ul> -->
 </template>
 
 <script>
@@ -21,29 +16,18 @@ export default {
     name: 'AppSelect',
     data() {
         return {
-            values: [
-                {
-                    id: 1,
-                    value: 1,
-                    text: 'Страна'
-                },
-                {
-                    id: 2,
-                    value: 2,
-                    text: '2'
-                },
-                {
-                    id: 3,
-                    value: 3,
-                    text: '3'
-                }
-            ]
+            selectActive: false
+        }
+    },
+    props: {
+        values: {
+            type: Array,
+            required: true
         }
     },
     methods: {
-        printData() {
-            console.log(5);
-            
+        arrowAnim() {
+            return this.selectActive = !this.selectActive
         }
     }
 }
@@ -55,11 +39,10 @@ export default {
     align-items: center;
 
     position: relative;
+}
 
-    margin-right: 1.5rem;
-    margin-bottom: 1.25rem;
-
-    &:hover .select__svg {
+.active.block-select {
+    .select__svg {
         transform: rotate(-180deg);
     }
 }
