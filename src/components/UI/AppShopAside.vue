@@ -190,7 +190,6 @@ export default {
 .catalog__aside {
     color: #424242;
 
-    max-width: 285px;
     margin-right: 2.5rem;
 }
 

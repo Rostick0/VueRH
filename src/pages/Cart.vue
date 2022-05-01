@@ -31,7 +31,7 @@
             <div class="cart__container">
                 <div class="cart__container_left">
 
-                    <div v-if="true" class="cart__no-products">
+                    <div v-if="checkCountProducts('ProductCart') === 0" class="cart__no-products">
                         <div class="cart__no-products_img">
                             <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M51.4891 16.5538L42.532 0H38.468L47.4252 16.5538H6.57484L15.532 0H11.468L2.51089 16.5538H0V28.6934L4.8213 52.2752H49.1757L54 28.9239V16.5538H51.4891ZM50.4 28.5789L46.2243 48.7902H7.7787L3.6 28.3519V27.8801H50.4V28.5789ZM50.4 24.3951H3.6V20.0388H50.4V24.3951Z" fill="#00A23D"/>
@@ -43,9 +43,10 @@
                             </AppButton>
                         </router-link>
                     </div>
-                    <ul v-else class="cart__products">
-                        <li class="cart__products_item"></li>
-                    </ul>
+
+                    <div v-else class="cart__products">
+                        <AppCartProduct></AppCartProduct>
+                    </div>
 
                     <div class="cart__help">
                         <div class="cart__help_title">
@@ -239,6 +240,18 @@ export default {
                 }
             ]
         }
+    },
+    methods: {
+        parseLocalStorage(name) {
+            let parse = localStorage.getItem(name);
+            parse = parse ? JSON.parse(parse) : 0;
+            return parse;
+        },
+        checkCountProducts(name) {
+            let count = this.parseLocalStorage(name);
+
+            return count.length
+        },
     }
 }
 </script>
@@ -359,6 +372,12 @@ export default {
     flex: 1 1 40%;
 
     padding: 1.125rem 1.875rem 1.75rem;
+
+    @media (max-width: 576px) {
+        & {
+            padding: 0.5rem 0.75rem 0.65rem;
+        }
+    }
 }
 
 .cart__form {
@@ -464,16 +483,6 @@ export default {
         flex: 1 1 100%;
     }
 }
-
-// .cart__method_button {
-//     border-radius: 0 3px 3px 0;
-
-//     padding: 0.875rem 0;
-
-//     &:first-child {
-//         border-radius: 3px 0px 0px 3px;
-//     }
-// }
 
 .cart__method_info {
     background: #FEFEFE;

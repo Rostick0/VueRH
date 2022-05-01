@@ -1,7 +1,7 @@
 <template>
     <div v-on:click="arrowAnim" v-bind:class="{ active: selectActive }" class="block-select">
-        <select class="select">
-            <option class="select__option" v-for="value in values" v-bind:key="value.id" v-bind:value="value.value">
+        <select v-bind:style="optionCss" class="select">
+            <option v-for="value in values" v-bind:key="value.id" v-bind:value="value.value" class="select__option">
                 {{ value.text }}
             </option>
         </select>
@@ -23,6 +23,9 @@ export default {
         values: {
             type: Array,
             required: true
+        },
+        optionCss: {
+            type: String
         }
     },
     methods: {

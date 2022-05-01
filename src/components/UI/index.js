@@ -21,6 +21,10 @@ import AppFooterPager from '@/components/UI/AppFooterPager';
 import AppSelect from '@/components/UI/AppSelect';
 import AppButtonRadio from '@/components/UI/AppButtonRadio';
 import AppProductSliderImg from '@/components/UI/AppProductSliderImg';
+import AppCartProduct from '@/components/UI/AppCartProduct';
+import AppCloseButton from '@/components/UI/AppCloseButton';
+import AppInputCounter from '@/components/UI/AppInputCounter';
+import AppGreyDate from '@/components/UI/AppGreyDate';
 
 export default [
     AppButton,
@@ -45,5 +49,9 @@ export default [
     AppFooterPager,
     AppSelect,
     AppButtonRadio,
-    AppProductSliderImg
+    AppProductSliderImg,
+    AppCartProduct,
+    AppCloseButton,
+    AppInputCounter,
+    AppGreyDate
 ];

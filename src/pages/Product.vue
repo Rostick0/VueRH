@@ -34,15 +34,7 @@
                                 <AppButtonRadio idAndFor="1,5" name="weight" styleSpan="padding: 0.5rem 0; border-radius: 2px;">1,5 кг.</AppButtonRadio>
                             </div>
                             <div class="product__count">
-                                <div class="product__count_input">
-                                    <button v-on:click="incrementCount">
-                                        +
-                                    </button>
-                                    <input type="number" v-model="this.count">
-                                    <button v-on:click="decrementCount">
-                                        -
-                                    </button>
-                                </div>
+                                <AppInputCounter></AppInputCounter>
                                 <div class="product__discount">
                                     Скидка!
                                 </div>
@@ -248,6 +240,12 @@ export default {
 .product__name {
     font-family: 'OrchideaPro-Bold';
     font-size: 1.5rem;
+
+    @media (max-width: 576px) {
+        & {
+            font-size: 1.25rem;
+        }
+    }
 }
 
 .product__availability {
@@ -286,49 +284,6 @@ export default {
     margin-bottom: 1.5rem;
 }
 
-.product__count_input {
-    border: 1px solid #00A23D;
-    border-radius: 2px;
-
-    display: flex;
-    align-items: center;
-
-    margin-right: 1.75rem;
-
-    width: 7rem;
-
-    button {
-        background: none;
-
-        padding: 0.5rem 0.875rem;
-    }
-
-    button:first-child {
-        border-right: 1px solid #00A23D;
-    }
-    
-    button:last-child {
-        border-left: 1px solid #00A23D;
-    }
-    
-    input {
-        // border-left: 1px solid #00A23D;
-        // border-right: 1px solid #00A23D;
-
-        display: inline-block;
-
-        padding: 0 0.875rem;
-
-        text-align: center;
-
-        width: 100%;
-    }
-
-    & > * {
-        // padding: 0.5rem 0.875rem;
-    }
-}
-
 .product__discount {
     background: #FAAF3A;
     border-radius: 5px;
@@ -360,6 +315,16 @@ export default {
     margin-bottom: 1.75rem;
 }
 
+.product__info_buttons {
+    @media (max-width: 576px) {
+        & {
+            grid-template-columns: repeat(2, 1fr);
+            display: grid;
+            grid-gap: 1rem;
+        }
+
+    }
+}
 
 .product__info_button {
     padding: 0.75rem 1.875rem;
@@ -367,6 +332,13 @@ export default {
 
     &:first-child {
         margin-right: 2.125rem;
+    }
+
+    @media (max-width: 576px) {
+        &:nth-child(1n) {
+            margin: 0;
+            padding: 0.5rem 1rem;
+        }
     }
 }
 

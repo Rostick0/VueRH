@@ -54,7 +54,7 @@
                     </li>
 					<li class="header-bottom__interaction_item favorite">
 						<router-link to="/cart">
-                            <span>{{ checkCountFavorite() }}</span>
+                            <span>{{ checkCountProducts('Favorite') }}</span>
 							<img src="@/img/favorite_icon.svg" alt="favorite">
                         </router-link>
 					</li>
@@ -65,7 +65,7 @@
 					</li>
 					<li class="header-bottom__interaction_item cart">
 						<router-link to="/cart">
-                            <span>{{ this.count }}</span>
+                            <span>{{ checkCountProducts('ProductCart') }}</span>
 							<img src="@/img/cart_icon.svg" alt="cart">
 						</router-link>
 					</li>
@@ -82,7 +82,7 @@ export default {
         return {
             show: false,
             search: '',
-            count: 0
+            countFavorite: 0
         }
     },
     methods: {
@@ -94,17 +94,13 @@ export default {
             parse = parse ? JSON.parse(parse) : 0;
             return parse;
         },
-        checkCountFavorite() {
-            let count = this.parseLocalStorage('Favorite');
+        checkCountProducts(name) {
+            let count = this.parseLocalStorage(name);
+
             return count.length
         },
         checkCountCart() {
 
-        }
-    },
-    watch: {
-        search() {
-            console.log(this.search)
         }
     }
 }
@@ -122,6 +118,16 @@ export default {
         @media (max-width: 576px) {
             .header-top__burger {
                 display: none;
+            }
+        }
+    }
+    
+    .header-top__logo {
+        @media (max-width: 576px) {
+            & {
+                img {
+                    width: 37vw;
+                }
             }
         }
     }
@@ -303,17 +309,40 @@ export default {
     }
     
     .header-bottom__interaction {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         display: grid;
         grid-gap: 2.5rem;
     }
 
     @media (max-width: 576px) {
         .header-bottom__interaction {
+            align-items: center;
+
+            background: #FEFEFE;
+            border: 1px solid #00A23D;
+            border-radius: 5px;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            padding: 1rem 1.5rem;
+
             position: fixed;
+            left: 0;
             bottom: 0;
 
+            width: 100%;
+
             z-index: 10000;
+
+            .header-top__burger {
+                background: none;
+
+                &::before,
+                &::after,
+                span {
+                    background: #424242;
+                }
+            }
         }
     }
     
@@ -324,6 +353,21 @@ export default {
         
         & > * {
             display: flex;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .header-bottom__interaction_item {
+            &:first-child {
+                display: flex;
+
+                .header-top__burger {
+                    padding: 0;
+
+                    width: 1.75rem;
+                    height: 1.25rem;
+                }
+            }
         }
     }
     

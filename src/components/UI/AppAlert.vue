@@ -1,6 +1,6 @@
 <template>
     <div class="alert">
-        <div class="container">
+        <div class="alert__container">
             <div class="alert__img">
                 <slot name="img">
                     
@@ -27,17 +27,19 @@ export default {
     background-size: cover;
 
     border-radius: 5px;
-
-    // position: absolute;
-    // left: 0;
 }
 
-.container {
+.alert__container {
     display: flex;
     align-items: center;
 
-    padding-top: 1.75rem;
-    padding-bottom: 1.75rem;
+    padding: 1.75rem 3.25rem;
+
+    @media (max-width: 576px) {
+        & {
+            padding: 0.75rem 1.5rem;
+        }
+    }
 }
 
 .alert__img {

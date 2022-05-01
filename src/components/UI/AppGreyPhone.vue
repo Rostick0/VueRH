@@ -19,5 +19,9 @@ export default {
         content: url('../../img/phone_icon.svg');
         margin-right: 0.5rem;
     }
+
+    @media (max-width: 576px) {
+        font-size: 1rem;
+    }
 }
 </style>

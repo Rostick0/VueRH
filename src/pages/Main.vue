@@ -309,6 +309,23 @@ export default {
 <style lang="scss" scoped>
 .top-button {
     padding: 0.625rem 1.25rem;
+
+    @media (max-width: 576px) {
+        & {
+            display: none;
+        }
+    }
+}
+
+.top-name {
+  color: #424242;
+
+  font-family: 'OrchideaPro-Bold';
+  font-size: 1.875rem;
+
+  @media (max-width: 576px) {
+      font-size: 1.5rem;
+  }
 }
 
 .main__slider {
@@ -325,23 +342,24 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    padding-bottom: 5.5rem;
+    margin-bottom: 5.5rem;
+
+    @media (max-width: 576px) {
+        & {
+            margin-bottom: 1.4rem;
+        }
+    }
 }
 
 .category-bottom {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     display: grid;
-    grid-gap: 2.75rem;
+    grid-gap: 2%;
 
     @media (max-width: 1024px) {
         & {
             grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    @media (max-width: 576px) {
-        & {
-            grid-template-columns: 1fr;
+            grid-gap: 0.625rem;
         }
     }
 }
@@ -356,11 +374,17 @@ export default {
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 1.75rem 2.25rem 0.75rem 2.25rem;
+    padding: 1.75rem 0.75rem 0.75rem;
 
     &:nth-child(2) {
         img {
             padding-left: 1.5rem;
+
+            @media (max-width: 576px) {
+                & {
+                    padding-left: 0.5rem;
+                }
+            }
         }
     }
 
@@ -369,17 +393,23 @@ export default {
 
         transform: scale(1.05);
     }
-
-    .category-bottom__item_text {
-        margin-top: 1.375rem;
-    }
 }
 
 .category-bottom__item_img {
     text-align: center;
 
-    img {
+    margin: 0 auto;
 
+    max-width: 200px;
+
+    img {
+        width: 100%;
+    }
+
+    @media (max-width: 576px) {
+        img {
+            width: 55%;
+        }
     }
 }
 
@@ -388,6 +418,16 @@ export default {
     font-size: 1.57rem;
 
     text-align: center;
+
+    margin-top: 1.375rem;
+
+    @media (max-width: 576px) {
+        & {
+            font-size: 0.75rem;
+
+            margin-top: 0.75rem;
+        }
+    }
 }
 
 
@@ -395,6 +435,12 @@ export default {
 
 .novelty {
     margin-top: 6.75rem;
+
+    @media (max-width: 576px) {
+        & {
+            margin-top: 1rem;
+        }
+    }
 }
 
 .novelty-top {
@@ -402,6 +448,10 @@ export default {
     justify-content: space-between;
 
     margin-bottom: 5.5rem;
+
+    @media (max-width: 576px) {
+        margin-bottom: 2.4rem;
+    }
 }
 
 .novelty-products {
@@ -581,12 +631,6 @@ export default {
             grid-template-columns: 1fr 1fr;
         }
     }
-
-    @media (max-width: 576px) {
-        & {
-            grid-template-columns: 1fr;
-        }
-    }
 }
 
 
@@ -594,6 +638,12 @@ export default {
 
 .blog {
     margin-top: 5.25rem;
+
+    @media (max-width: 576px) {
+        & {
+            margin-top: 1rem;
+        }
+    }
 }
 
 .blog-top {
@@ -601,6 +651,12 @@ export default {
     justify-content: space-between;
 
     margin-bottom: 3.75rem;
+
+    @media (max-width: 576px) {
+        & {
+            margin-bottom: 1rem;
+        }
+    }
 }
 
 .blog-bottom__article_img {
@@ -616,6 +672,12 @@ export default {
 
 .reviews {
     margin-top: 5rem;
+
+    @media (max-width: 576px) {
+        & {
+            margin-top: 1rem;
+        }
+    }
 }
 
 .reviews-top {
@@ -623,5 +685,9 @@ export default {
     justify-content: space-between;
 
     margin-bottom: 3.5rem;
+
+    @media (max-width: 576px) {
+        margin-bottom: 1rem;
+    }
 }
 </style>

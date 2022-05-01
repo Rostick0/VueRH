@@ -85,6 +85,10 @@ export default {
     margin: 0 auto;
 
     max-width: 50vw;
+
+    @media (max-width: 576px) {
+        max-width: 100vw;
+    }
 }
 
 .authorization__title {
@@ -113,6 +117,10 @@ export default {
     grid-gap: 1.5rem;
 
     width: 50%;
+
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
 }
 
 .authorization__button {

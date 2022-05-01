@@ -57,6 +57,7 @@ export default {
 .blog__socials {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .blog__socials_title {

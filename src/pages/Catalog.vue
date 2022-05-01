@@ -154,11 +154,22 @@ export default {
     display: flex;
 
     & > *:first-child {
-        flex: 1 1 32%;      
+        flex: 1 1 32%;
     }
 
     & > *:last-child {
         flex: 1 1 auto;
+    }
+
+    @media (max-width: 576px) {
+        & {
+            flex-wrap: wrap;
+        }
+
+        & > *:first-child {
+            margin-right: 0;
+            margin-bottom: 4rem;
+        }
     }
 }
 

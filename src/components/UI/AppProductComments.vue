@@ -90,10 +90,6 @@ export default {
     align-items: center;
 }
 
-.user__info {
-    
-}
-
 .user__img {
     img {
         border: 4px solid #00A23D;
@@ -109,6 +105,7 @@ export default {
 .user__info-top {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     margin-bottom: 0.625rem;
 }
@@ -171,10 +168,6 @@ export default {
     }
 }
 
-.comment__img {
-    
-}
-
 .comment__content-text {
     background: linear-gradient(90deg, #FAF9F8 0%, #FFFFFF 100%);
     border: 2px solid #00A23D;
@@ -187,6 +180,10 @@ export default {
     padding: 2.25rem 2rem 1rem 1.75rem;
 
     min-height: 16.25rem;
+
+    @media (max-width: 576px) {
+        padding: 1.5rem 1rem;
+    }
 }
 
 .comment__text {
@@ -227,13 +224,19 @@ export default {
 .comment__dislike {
     margin-left: 1.125rem;
     margin-right: 2.75rem;
-}
 
-.comment__answer {
-    
+    @media (max-width: 576px) {
+        & {
+            margin-right: 1rem;
+        }
+    }
 }
 
 .comment__interaction_right {
     padding: 0.43rem 0.875rem;
+
+    @media (max-width: 576px) {
+        padding: 0.22rem 0.44rem;
+    }
 }
 </style>

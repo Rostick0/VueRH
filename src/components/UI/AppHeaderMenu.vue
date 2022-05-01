@@ -103,6 +103,11 @@ export default {
     @media (max-width: 1366px) {
         left: -250%;
     }
+
+    @media (max-width: 576px) {
+        left: -1.25rem;
+        top: -14.75rem;
+    }
 }
 
 @keyframes appearance {

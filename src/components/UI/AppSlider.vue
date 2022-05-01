@@ -119,6 +119,10 @@ export default {
 .slider__text {
     margin-top: 4.25rem;
     margin-bottom: 1.75rem;
+
+    @media (max-width: 576px) {
+        margin-top: 2rem;
+    }
 }
 
 .slider__title {

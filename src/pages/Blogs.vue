@@ -55,16 +55,7 @@
                 <div class="blog__sort_name">
                     Упорядочить:
                 </div>
-                <ul class="blog__sort_by">
-                    <li class="blog__sort_by_item">
-                        <span>
-                            По рейтигну
-                        </span>
-                        <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L7.63594 6L13.8571 1" stroke="#BDBDBD" stroke-width="2"/>
-                        </svg>
-                    </li>
-                </ul>
+                <AppSelect v-bind:optionCss="optionCss" v-bind:values="[{id:1, text: 'По рейтигну'}]"></AppSelect>
             </div>
 
             <div class="blog__top-articles">
@@ -97,7 +88,9 @@
 
                         <div class="article-big__content_bottom">
                             <date class="article-big__date">
-                                08.02.2022
+                                <AppGreyDate>
+                                    08.02.2022
+                                </AppGreyDate>
                             </date>
 
                             <router-link :to="`/blog/${1}`">
@@ -146,7 +139,9 @@
 
                         <div class="article-big__content_bottom">
                             <date class="article-big__date">
-                                08.02.2022
+                                <AppGreyDate>
+                                    08.02.2022
+                                </AppGreyDate>
                             </date>
 
                             <router-link :to="`/blog/${1}`">
@@ -174,7 +169,7 @@
 
 <script>
 export default {
-    name: 'Blog',
+    name: 'Blogs',
     data() {
         return {
             navigationItems: [
@@ -184,6 +179,14 @@ export default {
                     link: '/blogs',
                 }
             ],
+            optionCss: {
+                border: 0,
+                color: '#00A23D',
+                fontFamily: 'OrchideaPro-Bold',
+                fontSize: '1.125rem',
+                padding: 0,
+                marginRight: '2.75rem'
+            },
             articles: [
                 {
                     id: 1,
@@ -318,10 +321,6 @@ export default {
     font-family: 'OrchideaPro-SemiBold';
 }
 
-.article-big__date {
-    color: #BDBDBD;
-}
-
 .article-big__button {
     background: none;
 
@@ -341,7 +340,6 @@ export default {
     display: grid;
     grid-gap: 1.25rem;
 
-    margin-right: -1.25rem;
     margin-bottom: 1.25rem;
 
     @media (max-width: 1800px) {
@@ -373,10 +371,6 @@ export default {
     margin-top: 3.75rem;
 }
 
-.blog__category_item {
-    
-}
-
 .blog__category_button {
     background: linear-gradient(90deg, #ECE9E6 0%, #FFFFFF 100%);
 
@@ -401,6 +395,10 @@ export default {
     font-size: 1.125rem;
 
     margin-bottom: 1.25rem;
+}
+
+.blog__sort_by {
+    border: 0;
 }
 
 .blog__sort_name {

@@ -48,17 +48,18 @@ header,
 aside {
 	display: block;
 }
-html,
 body {
 	font-family: 'OrchideaPro-Medium';
 	height: 100%;
 	width: 100%;
-	font-size: 100%;
 	line-height: 1;
 	font-size: 16px;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+
+	@media (max-width: 576px) {
+		& {
+			font-size: 10px;
+		}		
+	}
 }
 input,
 button,
@@ -153,6 +154,12 @@ h6 {
 			padding: 0 5%;
 		}
 	}
+
+	@media (max-width: 576px) {
+		& {
+			padding: 0 1%;
+		}
+	}
 }
 
 #app {
@@ -171,12 +178,4 @@ h6 {
 .footer {
   flex: 0 0 100%;
 }
-
-.top-name {
-  color: #424242;
-
-  font-family: 'OrchideaPro-Bold';
-  font-size: 1.875rem;
-}
-
 </style>

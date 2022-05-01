@@ -22,6 +22,11 @@
                         <h5 class="article_title">
                             {{ article.title }}
                         </h5>
+                        <date class="article_date_mobile">
+                            <AppGreyDate>
+                                05 января 2022
+                            </AppGreyDate>
+                        </date>
                         <div class="article_description">
                             {{ article.desciption }}
                         </div>
@@ -35,45 +40,6 @@
 <script>
 export default {
     name: 'AppArticles',
-    data() {
-        return {
-            // articles: [
-            //     {
-            //         id: 1,
-            //         title: 'Британские ученые заявили, что жизнь прекрасна!',
-            //         path: 'oney.png',
-            //         desciption: `
-            //             Как уже неоднократно упомянуто, 
-            //             предприниматели в сети интернет, 
-            //             вне зависимости от их уровня, 
-            //             должны быть функционально разнесены на независимые элементы...`,
-
-            //     },
-            //     {
-            //         id: 2,
-            //         title: 'Британские ученые заявили, что жизнь прекрасна!',
-            //         path: 'oney.png',
-            //         desciption: `
-            //             Как уже неоднократно упомянуто, 
-            //             предприниматели в сети интернет, 
-            //             вне зависимости от их уровня, 
-            //             должны быть функционально разнесены на независимые элементы...`,
-
-            //     },
-            //     {
-            //         id: 3,
-            //         title: 'Британские ученые заявили, что жизнь прекрасна!',
-            //         path: 'oney.png',
-            //         desciption: `
-            //             Как уже неоднократно упомянуто, 
-            //             предприниматели в сети интернет, 
-            //             вне зависимости от их уровня, 
-            //             должны быть функционально разнесены на независимые элементы...`,
-
-            //     }
-            // ]
-        }
-    },
     props: {
         articles: {
             type: Array,
@@ -97,6 +63,12 @@ export default {
             grid-template-columns: 1fr;
         }
     }
+
+    @media (max-width: 576px) {
+        & {
+            grid-gap: 1rem;
+        }
+    }
 }
 
 .article {
@@ -107,6 +79,10 @@ export default {
 
 .article_content {
     display: flex;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
 }
 
 .article_date {
@@ -117,6 +93,16 @@ export default {
     font-size: 3.12rem;
 
     margin-right: 1.25rem;
+
+    & > *:last-child {
+        display: none;
+    }
+
+    @media (max-width: 576px) {
+        & {
+            display: none;
+        }
+    }
 }
 
 .article_day {
@@ -130,6 +116,16 @@ export default {
     font-size: 1.25rem;
 
     padding: 0.56rem 1.125rem;
+}
+
+.article_date_mobile {
+    display: none;
+    
+    @media (max-width: 576px) {
+        display: block;
+
+        margin-bottom: 0.625rem;
+    }
 }
 
 .article_img {

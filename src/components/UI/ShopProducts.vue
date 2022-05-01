@@ -18,8 +18,8 @@
                     </li>
                 </ul>
 
-                <button v-on:click="setFavorite(product)">
-                    <img v-if="checkFavorite(product.id)" class="shop-product__check-favourite" src="@/img/like-active.svg" alt="">
+                <button v-on:click="setProduct(product, 'Favorite')">
+                    <img v-if="checkFavorite(product.id, 'Favorite')" class="shop-product__check-favourite" src="@/img/like-active.svg" alt="">
                     <img v-else class="shop-product__check-favourite" src="@/img/like_no-active.svg" alt="">
                 </button>
 
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <AppButton class="shop-product__button">
+                <AppButton v-on:click="setProduct(product, 'ProductCart')" class="shop-product__button">
                     В корзину
                 </AppButton>
             </div>
@@ -87,7 +87,7 @@ export default {
         }
     },
     methods: {
-        filterFavorite(data, id) {
+        filterData(data, id) {
             if (data) {
                 data = data.filter(elem => id === elem.id);
                 data = data.length
@@ -102,20 +102,20 @@ export default {
             let data = localStorage.getItem('Favorite');
             if (data) {
                 data = JSON.parse(data);
-                return this.filterFavorite(data, id);
+                return this.filterData(data, id);
             }
             return false;
         },
-        setFavorite(product) {
-            let data = localStorage.getItem('Favorite');
+        setProduct(product, where) {
+            let data = localStorage.getItem(where);
             data = data ? JSON.parse(data) : [];
 
-            if (this.filterFavorite(data, product.id)) {
+            if (this.filterData(data, product.id)) {
                 data = data.filter(elem => product.id !== elem.id);
-                this.localStorageSet('Favorite', data);
+                this.localStorageSet(where, data);
             } else {
                 data.push({...product});
-                this.localStorageSet('Favorite', data);
+                this.localStorageSet(where, data);
             }
         }
     }
@@ -137,7 +137,7 @@ export default {
 
     @media (max-width: 576px) {
         & {
-            grid-template-columns: 1fr;
+            grid-gap: 1.2rem;
         }
     }
 }
@@ -168,17 +168,26 @@ export default {
         position: absolute;
 
         top: 1.5rem;
-        left: 80%;
+        right: 1.5rem;
         
 
         width: 1.75rem;
 
         z-index: 100;
+
+        @media (max-width: 576px) {
+            & {
+                top: 1rem;
+
+                width: 1.2rem;
+            }
+        }
     }
 }
 
 .shop-product__ribbon {
     background: url('../../img/hit_sales.svg') no-repeat;
+    background-size: 100%;
 
     font-family: 'OrchideaPro-Bold';
     font-size: 1.25rem;
@@ -189,6 +198,17 @@ export default {
     padding: 1.125rem 2rem 2rem 1.06rem;
 
     position: absolute;
+
+    @media (max-width: 576px) {
+        & {
+            font-size: 0.75rem;
+
+            left: -0.25rem;
+            top: -1rem;
+
+            padding: 0.8rem 1.2rem 1.5rem 0.7rem;
+        }
+    }
 }
 
 .shop-product__stocks {
@@ -209,6 +229,20 @@ export default {
 
     & > *:last-child {
         margin-right: 0;
+    }
+
+    @media (max-width: 576px) {
+        & {
+            top: 0.75rem;
+        }
+
+        & > * {
+            display: none;
+        }
+
+        & > *:first-child {
+            display: block;
+        }
     }
 }
 
@@ -236,6 +270,10 @@ export default {
 
 .shop-product__content {
     padding: 0 1.75rem 1.5rem;
+
+    @media (max-width: 576px) {
+        padding: 0 1rem 1rem;
+    }
 }
 
 .shop-product__info {
@@ -249,7 +287,7 @@ export default {
 }
 
 .shop-product__button {
-    padding: 0.75rem 3rem;
+    padding: 0.75rem 0;
 
     width: 100%;
 }
@@ -261,6 +299,16 @@ export default {
 .shop-product__rating {
     display: flex;
     justify-content: center;
+
+    @media (max-width: 576px) {
+        & {
+            flex-wrap: wrap;
+        }
+
+        &:first-child {
+            margin-bottom: 0.2rem;
+        }
+    }
 }
 
 .shop-product__price {

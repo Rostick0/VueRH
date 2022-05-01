@@ -31,14 +31,22 @@ export default {
 .catalog__nav {
     margin-top: 2.5rem;
     margin-bottom: 3.75rem;
+
+    @media (max-width: 576px) {
+        & { 
+            font-size: 1rem;
+
+            margin-top: 1rem;
+            margin-bottom: 1.25rem;
+        }
+    }
 }
 
 .catalog__navigation {
     display: flex;
+    flex-wrap: wrap;
 
     font-family: 'OrchideaPro-SemiBold';
-
-    margin-bottom: 3.75rem;
 }
 
 .catalog__navigation_item {

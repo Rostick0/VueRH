@@ -394,6 +394,10 @@ export default {
 
 .article__button-subscribe {
     padding: 1rem 2.5rem;
+
+    @media (max-width: 576px) {
+        padding: 0.5rem 1.25rem;
+    }
 }
 
 .article__nav_title {
